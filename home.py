@@ -1,6 +1,5 @@
 from flask import *
 import pandas as pd
-from functools import reduce
 import re
 
 app = Flask(__name__)
@@ -83,6 +82,3 @@ def showIndex():
 
 if __name__ == '__main__':
     app.run()
-
-import system
-print(sys.version)
