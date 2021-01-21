@@ -8,11 +8,11 @@ app = Flask(__name__)
 def showMango():
 
     #Read in csvs and set index
-    mojo = pd.read_csv('/data/mojo_revised.csv')
-    imdb = pd.read_csv('/data/imdb.csv')
-    metacritic = pd.read_csv('/data/metacritic.csv')
-    tomato = pd.read_csv('/data/rotten_tomatoes.csv')
-    heirloom = pd.read_csv('/data/heirloom.csv')
+    mojo = pd.read_csv('.data/mojo_revised.csv')
+    imdb = pd.read_csv('.data/imdb.csv')
+    metacritic = pd.read_csv('.data/metacritic.csv')
+    tomato = pd.read_csv('.data/rotten_tomatoes.csv')
+    heirloom = pd.read_csv('.data/heirloom.csv')
     mojo.rename(columns={"title": "mojo_title"}, inplace=True)
     heirloom.set_index(['mojo_title'])
     mojo.set_index(['mojo_title'])
