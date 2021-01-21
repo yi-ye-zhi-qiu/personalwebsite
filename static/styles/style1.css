@@ -172,6 +172,10 @@ img{
 .post1{
   -webkit-animation: in-from-left 3s cubic-bezier(0, 1, 0.13, 1);
   animation: in-from-left 3s cubic-bezier(0, 1, 0.13, 1);
+  padding-bottom: 40px;
+}
+.post1 a{
+  color: black;
 }
 .post1 p{
   width: 40vw;
@@ -187,6 +191,18 @@ img{
   color: #B5EAD7;
   background: rgba(181, 234, 215, 0.1);
 }
+.skill{
+  color: #B5678E !important;
+  background: rgba(238, 198, 224, 0.1) !important;
+}
+.skill:hover{
+  background: rgba(238, 198, 224, 0.4) !important;
+  transition: background 500ms cubic-bezier(0, 0.8, 0.13, 1);
+}
+.skill:nth-child(1){
+  color: rgba(255, 130, 66, 0.4) !important;
+  background: rgba(255, 130, 66, 0.1) !important;
+}
 .tag:hover{
   background: rgba(181, 234, 215, 0.4);
   transition: background 500ms cubic-bezier(0, 0.8, 0.13, 1);;
@@ -198,6 +214,7 @@ img{
 .date{
   font-size: 14px;
   animation: fade_in ease 1s;
+  margin-bottom: 80px;
 }
 .post1 p:hover{
   cursor: pointer;

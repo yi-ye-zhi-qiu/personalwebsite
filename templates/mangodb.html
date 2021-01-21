@@ -1,0 +1,35 @@
+<html lang="en" dir="ltr">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+  <head>
+    <meta charset="utf-8">
+    <title>MangoDB 🥭</title>
+  </head>
+
+  <body>
+    <header>
+      <h1><p>Mango</p>|芒果  DB 🥭 <a href= "{{ url_for('showPortfolio') }}" resize>back</a></h1>
+      <!--<h2>咱们吃一堑长一智，Netflix 没什么给你吃了</h2>
+      <h2>Standardized ratings from RottenTomatoes, IMDB, and Metacritic</h2>-->
+
+      <a class="tag">People ❤️</a>
+      <a class="tag">Critics ❤️</a>
+      <a class="tag">Stats</a>
+      <p>In recent years ('16-'20), why the movie industry sucks: the sad world of money in, money out</p>
+    </header>
+    <div class="gallery">
+      {% block content %}
+      {%for i in range(0, 10) %}
+      <div class="img-banner">
+        <img class="img-full" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>
+        <p class="img-title">{{html_data.iloc[i]['tomato_title']}}</p>
+        <p class="img-revenue">{{html_data.iloc[i]['domestic_revenue']}}</p>
+      </div>
+      {% endfor %}
+      {% endblock %}
+    </div>
+
+    <footer><a>source_code</a></footer>
+  </body>
+
+  <!--<script src="{{url_for('static', filename='app.js')}}"></script>-->
+</html>
