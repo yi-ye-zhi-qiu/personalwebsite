@@ -8,11 +8,11 @@ app = Flask(__name__)
 def showMango():
 
     #Read in csvs and set index
-    mojo = pd.read_csv('data/mojo_revised.csv')
-    imdb = pd.read_csv('data/imdb.csv')
-    metacritic = pd.read_csv('data/metacritic.csv')
-    tomato = pd.read_csv('data/rotten_tomatoes.csv')
-    heirloom = pd.read_csv('data/heirloom.csv')
+    mojo = pd.read_csv('/data/mojo_revised.csv')
+    imdb = pd.read_csv('/data/imdb.csv')
+    metacritic = pd.read_csv('/data/metacritic.csv')
+    tomato = pd.read_csv('/data/rotten_tomatoes.csv')
+    heirloom = pd.read_csv('/data/heirloom.csv')
     mojo.rename(columns={"title": "mojo_title"}, inplace=True)
     heirloom.set_index(['mojo_title'])
     mojo.set_index(['mojo_title'])
@@ -47,25 +47,12 @@ def showMango():
     df = df[df.mc_criticscore != 'No score yet']
     df = df[df.mc_audiencescore != 'No score yet']
     df.drop_duplicates(subset=['tomato_title'], inplace=True)
-    # ----- Fix metacritic and imdb ----- #
-    # ----- Error in code has been fixed, but these were initially off by 1 row ---- #
-
-    #metacritic_df = metacritic_df.shift(-1)
-    #imdb_df = imdb_df.shift(-1)
-
-    # dfs = [mojo_df, metacritic_df, imdb_df, rottentomatoes_df]
-    # df = reduce(lambda left,right: pd.merge(left,right,on='mojo_title'), dfs)
-    # df.drop_duplicates(subset=['tomato_title'], inplace=True)
-    # name = df['tomato_title']
-    # image = df['tomato_image']
     df['domestic_revenue'] = df['domestic_revenue'].str.replace(',', '')
     df['domestic_revenue'] = df['domestic_revenue'].str.replace('$', '')
     df['domestic_revenue'] = pd.to_numeric(df['domestic_revenue'])
     df = df.sort_values(by=['domestic_revenue'], ascending=False)
-
     html_data = df.head(50)
     return render_template('mangodb.html', html_data = html_data)
-#5 data sources, summing up to hopefully ~3k for all movies 2016-2020
 
 @app.route('/aboutme')
 def showAbout():
