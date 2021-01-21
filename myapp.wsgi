@@ -2,9 +2,9 @@
 import sys
 import logging
 logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0, '/var/www/myapp/')
+sys.path.insert(0, '/var/www/liamisaacs/')
 
-from __init__ import app as application
+from app import app as application
 # where "__init__" is the name of the py file
 # that initializes your flask app
 
