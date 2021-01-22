@@ -12,25 +12,49 @@
       <h2>Predicted liam-o-meter ratings for all_da movies</h2>
 
       <a class="tag">stats_report</a>
-      <p>observation: da people and da critics be hatin da horror</p>
-      <a class="tag">show me da next big move__ie</a>
+      <p>disclaimer: these aren't my actual opinions</p>
+      <p>liam's current fav: {{ liams_favorite }}</p>
+      <a id="change_content" class="tag">show me da next big move__ie</a>
 
 
     </header>
+
+    <script>
+
+      //var statistics = '<img src ="static/images/heatmap_1.png"/>'
+
+      var content_changer = document.getElementById("change_content")
+      var original = "stats_report"
+
+      content_changer.addEventListener("click", () => {
+        if(content_changer.innerHTML === "at least take a guess first ... "){
+          content_block = document.querySelector('.gallery')
+          content_block.innerHTML = "The next big movie is a ___ DISNEY ANIMATION  ___ "
+          content_changer.innerHTML === "show-meh-movies"
+        } else {
+          content_changer.innerHTML = "at least take a guess first ... "
+          content_block.innerHTML = "reload for the movies sorry"
+        }
+      })
+
+    </script>
+    {% block content %}
     <div class="gallery">
-      {% block content %}
-      {%for i in range(0, 10) %}
+      {%for i in range(0, 800) %}
       <div class="img-banner">
         <img class="img-full" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>
         <p class="img-title">{{html_data.iloc[i]['tomato_title']}}</p>
-        <p class="img-revenue">{{html_data.iloc[i]['domestic_revenue']}}</p>
+        <p class="img-revenue">Liam-o-meter: {{html_data.iloc[i]['pred']}}</p>
+        <p class="img-revenue">IMDB: {{html_data.iloc[i]['imdbscore_y']}}</p>
+
       </div>
       {% endfor %}
       {% endblock %}
     </div>
 
-    <footer><a>source_code</a></footer>
+    <footer><a href="https://github.com/yi-ye-zhi-qiu/personalwebsite">source_code</a></footer>
   </body>
 
-  <!--<script src="{{url_for('static', filename='app.js')}}"></script>-->
+
+  <script src="{{url_for('static', filename='app.js')}}"></script>
 </html>
