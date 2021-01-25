@@ -1,27 +1,21 @@
-{% block content %}
 <html lang="en" dir="ltr">
   <head>
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <meta name="description" content="Liam Isaacs">
     <meta charset="utf-8">
     <title>Liam Isaacs</title>
   </head>
   <body>
-    <h1>hi，i'm liam</h1>
-    <h2>__</h2>
-    <div class="aboutme">
-        <p><a href="{{ url_for('showAbout') }}">about me</a></p>
-    </div>
-    <div class="portfolio">
-      <p>
-        <a href="{{ url_for('showPortfolio') }}">portfolio</a></p>
-      <div class="data_science_images">
-        <!--<img id="img" src="manhattan_distribution.svg" alt="">-->
+    <div class="home">
+      <h1>hi, I'm liam</h1>
+      <p>-_ - - __ </p>
+      <div class="portfolio">
+        <p>
+          <a href="{{ url_for('show_portfolio') }}">portfolio</a></p>
       </div>
-    </div>
-    <div class="piano">
-      <p><a>contact</a></p>
+      <div class="contact">
+        <p><a>contact</a></p>
+      </div>
     </div>
   </body>
 </html>
-{% endblock %}
