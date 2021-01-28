@@ -33,14 +33,17 @@
 
         {% block content %}
         <div class="gallery">
+            <div class="img-banner">
+                <img class=" movie-img" src="{{ liams_favorite_movie_image }}"></img></div>
+                <p class="movie-title liams-favorite">Liam's favorite movie!! {{liams_favorite[0]}} scored @ {{max}} on the liamometer~~</p>
+            </div>
           {%for i in range(0, 1000) %}
           <!-- <div class="img-banner animated fadeIn shadow-sm"> -->
           <div class="img-banner">
-
             <img class="movie-img" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>
-            <p class="movie-title">{{html_data.iloc[i]['tomato_title']}}</p>
+            <p class="movie-title">{{html_data.iloc[i]['mojo_title']}}</p>
             <p class="movie-revenue">Liam-o-meter: {{html_data.iloc[i]['pred']}}</p>
-            <p class="movie-revenue">IMDB: {{html_data.iloc[i]['imdbscore_y']}}</p>
+            <p class="movie-revenue">IMDB: {{html_data.iloc[i]['imdbscore']}}</p>
           </div>
           {% endfor %}
           {% endblock %}

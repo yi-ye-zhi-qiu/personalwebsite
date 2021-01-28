@@ -12,10 +12,11 @@ def show_mango():
     takes in these 5 CSVs.
     Returns 1500 rows, just because I do not want to overload the page (currently working on lazy-load in javascript, or loading as you scroll.)
     """
-    html_data = get_movie_data()
+    max, liams_favorite, liams_favorite_movie_image, html_data = get_movie_data()
 
 
-    return render_template('liamometer.html', html_data = html_data)
+    return render_template('liamometer.html', max=max, liams_favorite_movie_image = liams_favorite_movie_image,
+                            liams_favorite=liams_favorite, html_data = html_data)
 #
 # @app.route("/load")
 # def load():
