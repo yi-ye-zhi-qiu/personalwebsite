@@ -9,13 +9,13 @@ def get_movie_data():
 
     #read in data
     #mojo = BoxOfficeMojo
-    mojo = pd.read_csv('/Users/liamisaacs/Desktop/github repositories/personalwebsite/data/mojo.csv')
+    mojo = pd.read_csv('/var/www/liamisaacs/data/mojo.csv')
     mojo.set_index(['mojo_title'])
     #imdb = IMDb
-    imdb = pd.read_csv('data/imdb.csv')
+    imdb = pd.read_csv('/var/www/liamisaacs/data/imdb.csv')
     imdb.set_index(['mojo_title'])
     #movie images are from RottenTomatoes
-    movie_images = pd.read_csv('data/heirloom.csv')
+    movie_images = pd.read_csv('/var/www/liamisaacs/data/heirloom.csv')
     movie_images.set_index(['mojo_title'])
     movie_images.dropna(subset=['tomato_image'], inplace=True)
     movie_images.drop(columns=['url', 'tomato_criticcount', 'tomato_audiencecount'], inplace=True)
@@ -122,7 +122,7 @@ def get_movie_data():
 
     df_final = df_final.merge(movie_images, on='mojo_title', how='inner')
 
-    df_final = df_final.sort_values(by=['domestic_revenue'], ascending=False)
+    df_final = df_final.sort_values(by=['pred'], ascending=False)
     #only display what we have images for
     df_final = df_final.dropna(subset=['tomato_image'])
     df_final['pred'] = df_final['pred'].round(1)

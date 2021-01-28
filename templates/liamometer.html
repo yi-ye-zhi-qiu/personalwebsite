@@ -34,10 +34,10 @@
         {% block content %}
         <div class="gallery">
             <div class="img-banner">
-                <img class=" movie-img" src="{{ liams_favorite_movie_image }}"></img></div>
+                <img class=" movie-img" src="{{ liams_favorite_movie_image }}"></img>
                 <p class="movie-title liams-favorite">Liam's favorite movie!! {{liams_favorite[0]}} scored @ {{max}} on the liamometer~~</p>
             </div>
-          {%for i in range(0, 1000) %}
+          {%for i in range(1, 1000) %}
           <!-- <div class="img-banner animated fadeIn shadow-sm"> -->
           <div class="img-banner">
             <img class="movie-img" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>

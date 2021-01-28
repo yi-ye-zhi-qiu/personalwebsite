@@ -189,7 +189,7 @@ footer{
   justify-content: center;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(6, 0.5fr);
+  grid-template-columns: repeat(5, 0.5fr);
   grid-auto-rows: 500px;
 }
 .movie-img{
@@ -220,9 +220,9 @@ footer{
   font-size: 0.6em;
 }
 .liams-favorite{
-  background-color: white !important;
   padding-left: 0px !important;
   padding-right: 0 !important;
+  background-color: white !important;
 }
 
 /** REPORTS CSS **/
