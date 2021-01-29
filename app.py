@@ -51,6 +51,13 @@ def show_index():
 def show_portfolio():
     return render_template('portfolio.html')
 
+@app.route('/league')
+def show_league():
+    return render_template('league.html')
+
+@app.route("/riot-api-form", methods=["GET", "POST"])
+def riot_api_call():
+    return render_template('public/league.html')
 
 if __name__ == '__main__':
     app.run()

@@ -1,0 +1,41 @@
+{% extends "templates/league.html" %}
+{% block title %}League {% endblock %}
+{% block main %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/league_style.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>league_data</title>
+  </head>
+  <body>
+    <div class="xx">
+      <div class="xy">
+        <form id="riot-api-form" class="c">
+          <p>搜索一下你英雄联盟的用户名</p>
+          <!-- progress bar -->
+          <div class="vcmvz" aria-hidden="true">
+            <div class="ghgtu" role="progressbar">
+              <div class="kiasd"></div>
+              <div class="yuuyx"></div>
+              <div class="yuri">
+                <span class="I3ed"></span>
+              </div>
+              <div class="QeRzxYT">
+                <span class="I4ed"></span>
+              </div>
+            </div>
+          </div>
+          <!-- inputbox -->
+          <input dataset id="input-box" name="input" type="text">
+        </form>
+      </div>
+    </div>
+  </body>
+  <script src="{{url_for('static', filename='js/input_handler.js')}}"></script>
+</html>
+
+
+{% endblock %}
