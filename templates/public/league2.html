@@ -1,7 +1,3 @@
-{% extends "templates/league.html" %}
-{% block title %}League {% endblock %}
-{% block main %}
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/league_style.css') }}">
@@ -13,8 +9,11 @@
   <body>
     <div class="xx">
       <div class="xy">
-        <form id="riot-api-form" class="c">
-          <p>搜索一下你英雄联盟的用户名</p>
+        <form id="riot-api-form">
+          <p>search ur LoL name</p>
+          {% for key,value in form.items() %}
+            <br><h2> {{value}}</h2>
+          {% endfor %}
           <!-- progress bar -->
           <div class="vcmvz" aria-hidden="true">
             <div class="ghgtu" role="progressbar">
@@ -36,6 +35,3 @@
   </body>
   <script src="{{url_for('static', filename='js/input_handler.js')}}"></script>
 </html>
-
-
-{% endblock %}

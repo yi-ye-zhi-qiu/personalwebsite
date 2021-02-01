@@ -2,6 +2,8 @@ from flask import *
 from flask import Flask, render_template, request, jsonify, make_response
 
 from python_data_apps.movies_db import get_movie_data
+from python_data_apps.riot_api import user_info
+
 
 app = Flask(__name__)
 
@@ -55,9 +57,15 @@ def show_portfolio():
 def show_league():
     return render_template('league.html')
 
-@app.route("/riot-api-form", methods=["GET", "POST"])
+@app.route('/league', methods=["GET", "POST"])
 def riot_api_call():
-    return render_template('public/league.html')
+    if request.method == 'POST':
+        form = request.form
+    print(form)
+
+
+
+    return render_template('public/league2.html', form = form)
 
 if __name__ == '__main__':
     app.run()

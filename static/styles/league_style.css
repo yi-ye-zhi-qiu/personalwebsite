@@ -11,7 +11,6 @@ body {
   line-height: 1.4286;
   margin: 0;
   padding: 0;
-  background-color: #E7ECEF;
 }
 input:-webkit-autofill {
   -webkit-box-shadow:0 0 0 50px #C8E6C9 inset;
@@ -28,18 +27,39 @@ form{
 }
 span,
 input {
-	border:2px solid rgba(255,255,255,.5);
-	font-size:1.75em;
 	padding:.25em .5em .3125em;
 	color:var(--placeholder-color);
-	border-radius:.25em;
-	background:transparent;
 	transition:all .100s;
+  border: none;
+
 }
+input{
+  font-size:1.75em;
+  background: transparent;
+}
+#input-box{
+  content: '';
+  border-bottom: none;
+  left: 100;
+  animation: appear-underline 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+@keyframes appear-underline {
+  0%{
+    border-bottom: 0.5px solid #dadafd;
+  }
+  50%{
+    border-bottom: 1px solid #f99191;
+  }
+  100%{
+    border-bottom: 10px solid #dafdda;
+  }
+}
+
+
 input:focus{
 	outline:none;
 	color:var(--placeholder-color);
-	border-color:var(--placeholder-color);
+	border: none;
 }
 canvas {
 	position:absolute;
@@ -49,29 +69,6 @@ canvas {
 	bottom:0;
 	pointer-events:none;
 }
-
-::-webkit-input-placeholder {
-	color: #C8E6C9;
-	text-shadow:0 0 .125em transparent;
-	transition:all .25s;
-}
-input:focus::-webkit-input-placeholder {
-	opacity:.5;
-}
-
-.-moz-placeholder {
-	color: var(--placeholder-color);
-	text-shadow:0 0 .125em transparent;
-	transition:all .25s;
-}
-input:focus::-moz-placeholder {
-	opacity:.5;
-}
-
-input:focus:-ms-input-placeholder {
-	opacity:.5;
-}
-
 
 .vcmvz{
   height: 8px;
@@ -236,4 +233,55 @@ input:focus:-ms-input-placeholder {
   overflow: hidden;
   flex-grow: 1;
   -webkit-box-flex: 1;
+}
+
+
+
+p{
+  font-weight: 200;
+  font-size: 1em;
+  padding: 0.4em 0em;
+  position: absolute;
+  top: -10%;
+}
+.rev-block{
+  position: absolute;
+}
+.rev-block span{
+  opacity: 0;
+  animation: appear-text 0.0001s linear forwards;
+  animation-delay: .4s;
+}
+
+.rev-block:after{
+  content: '';
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background: #dafdfd;
+  animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+@keyframes rev-block {
+  0% {
+    left: 0;
+    width: 0%;
+  }
+  50% {
+    left: 0;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
+  }
+}
+@keyframes appear-text{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
