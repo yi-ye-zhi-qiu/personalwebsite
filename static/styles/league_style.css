@@ -285,3 +285,195 @@ p{
     opacity: 1;
   }
 }
+
+.gamelist>.gameitem {
+  margin-top: 8px;
+  position: relative;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+.gameitem>.content {
+    display: table;
+    width: 800px;
+    border-collapse: collapse;
+    border: 1px solid #cdd2d2;
+}
+.gameitem>.content>div {
+    display: table-cell;
+    height: 96px;
+    vertical-align: middle;
+}
+.gameitem .lose>.content {
+    table-layout: fixed;
+    background-color: #e2b6b3;
+    border-color: #cea7a7;
+}
+.gameitem>.content>.gamestats {
+    width: 100px;
+    text-align: center;
+    font-size: 11px;
+    color: #555;
+    line-height: 16px;
+}
+.gameitem>.content>.gamestats>.gametype {
+    font-weight: bold;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.gameitem .lose>.content>.gamestats>.bar {
+    background: #cea7a7;
+}
+.gameitem>.content>.gamestats>.bar {
+    display: block;
+    width: 27px;
+    margin: 5px auto;
+    height: 2px;
+    background: #cdd2d2;
+}
+.gameitem .lose>.content>.gamestats>.gameresult {
+    color: #c6443e;
+}
+.gameitem>.content>.gamestats>.gameresult {
+    font-weight: bold;
+}
+.gameitem>.content>.gamesettinginfo {
+    width: 100px;
+    font-size: 0;
+}
+.gameitem>.content>.gamesettinginfo>.championimage {
+    display: inline-block;
+    width: 46px;
+    height: 46px;
+    vertical-align: middle;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.gameitem>.content>.gamesettinginfo>.championimage .image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+.gameitem>.content>.gamesettinginfo>.summonerspell {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+.gameitem>.content>.gamesettinginfo>.summonerspell>.spell {
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin-top: 2px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.gameitem>.content>.gamesettinginfo>.summonerspell>.spell:first-child {
+    margin-left: 0;
+}
+.gameitem>.content>.gamesettinginfo>.summonerspell>.spell>.image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.gameitem>.content>.gamesettinginfo>.championname {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #555;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.gameitem>.content>.KDA {
+    font-size: 11px;
+    text-align: center;
+}
+.gameitem>.content>.KDA>.KDA {
+    color: #879292;
+    font-size: 15px;
+    white-space: nowrap;
+}
+.gameitem>.content>.KDA>.KDA>span.kill, .gameitem>.content>.KDA>span.assist {
+    color: #555e5e;
+    font-weight: bold;
+}
+.gameitem>.content>.KDA>.KDA>span.death {
+    color: #c6443e;
+    font-weight: bold;
+}
+.gameitem>.content>.KDA>.KDAratio {
+    color: #555e5e;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+.gameitem>.content>.KDA>.KDAratio>.KDAratio{
+    color: #353a3a;
+}
+.gameitem>.content>.stats {
+    width: 90px;
+    font-size: 11px;
+    text-align: center;
+    line-height: 18px;
+    color: #555e5e;
+}
+.gameitem>.content>.kp{
+  color: #c6443e;
+}
+.gameitem>.content>.items{
+  font-size: 0;
+}
+.gameitem>.content>.items>.itemlist{
+  width: 96px;
+  margin: 0 auto;
+}
+.gameitem>.content>.items .item {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    border-radius: 3px;
+    margin-top: 2px;
+    margin-right: 2px;
+    overflow: hidden;
+}
+.gameitem .lose>.content>.items>.itemlist>.item {
+    background-color: #cea7a7;
+}
+.gameitem>.content>.items .item>.image {
+    width: 100%;
+    height: 100%;
+}
+.gameitem>.content>.followplayers {
+    width: 170px;
+    font-size: 0;
+}
+.team {
+    float: left;
+    width: 50%;
+}
+.summoner {
+    display: block;
+    width: 80px;
+    height: 18px;
+    margin-left: 3px;
+    text-align: left;
+    white-space: nowrap;
+}
+.championimage {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+.summonername {
+  display: inline-block;
+  max-width: 60px;
+  vertical-align: middle;
+  font-size: 11px;
+  color: #555;
+}
+.subteamimage{
+  width: 16px !important;
+  height: 16px !important;
+}

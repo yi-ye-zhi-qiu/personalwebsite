@@ -1,9 +1,8 @@
 from flask import *
 from flask import Flask, render_template, request, jsonify, make_response
-
+from riotwatcher import LolWatcher, ApiError
 from python_data_apps.movies_db import get_movie_data
-from python_data_apps.riot_api import user_info
-
+from python_data_apps.riot_api import game_info_by_summoner_name
 
 app = Flask(__name__)
 
@@ -63,9 +62,20 @@ def riot_api_call():
         form = request.form
     print(form)
 
+    #define as static variables for now, must be updated via form info
+    api_key = ''
+    watcher = LolWatcher(api_key)
+    region = 'na1'
+    gamemode = 'CLASSIC'
+    name = 'Divine Right'
+    champion_id = 81 #currently dont see how this will be useful but ok
 
+    user_1 = game_info_by_summoner_name(api_key, name, region, champion_id, gamemode)
 
-    return render_template('public/league2.html', form = form)
+    df, m = user_1.match_data()
+    D_df = df
+
+    return render_template('public/league2.html', form = form, D_df=D_df, name=name)
 
 if __name__ == '__main__':
     app.run()
