@@ -1,8 +1,9 @@
 from flask import *
 from flask import Flask, render_template, request, jsonify, make_response
-from riotwatcher import LolWatcher, ApiError
 from python_data_apps.movies_db import get_movie_data
-from python_data_apps.riot_api import game_info_by_summoner_name
+from riotwatcher import LolWatcher, ApiError
+from python_data_apps.riot_api import game_info_by_match_id
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -60,22 +61,31 @@ def show_league():
 def riot_api_call():
     if request.method == 'POST':
         form = request.form
-    print(form)
-
+    for key in form:
+        name = form[key]
     #define as static variables for now, must be updated via form info
     api_key = ''
-    watcher = LolWatcher(api_key)
     region = 'na1'
     gamemode = 'CLASSIC'
-    name = 'Divine Right'
-    champion_id = 81 #currently dont see how this will be useful but ok
 
-    user_1 = game_info_by_summoner_name(api_key, name, region, champion_id, gamemode)
+    watcher = LolWatcher(api_key)
+    user = watcher.summoner.by_name('na1', name)
+    matches = watcher.match.matchlist_by_account(region, user['accountId'])
 
-    df, m = user_1.match_data()
-    D_df = df
+    game_ids = []
+    for i in range(0,10): #display 10 games
+        game_ids.append(matches['matches'][i]['gameId'])
 
-    return render_template('public/league2.html', form = form, D_df=D_df, name=name)
+    # onload_display = pd.DataFrame()
+    # for game in game_ids:
+    #     gameid = game
+    dfs = {}
+    for gameid in game_ids:
+        dfs[gameid] = game_info_by_match_id(api_key,
+                                          name, region,
+                                          gamemode, gameid).match_data()
+
+    return render_template('public/league2.html', game_ids = game_ids, form = form, dfs=dfs, name=name)
 
 if __name__ == '__main__':
     app.run()

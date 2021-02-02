@@ -294,9 +294,10 @@ p{
 }
 .gameitem>.content {
     display: table;
-    width: 800px;
+    width: 850px;
     border-collapse: collapse;
-    border: 1px solid #cdd2d2;
+    border: 0
+    /* border: 1px solid #cdd2d2; */
 }
 .gameitem>.content>div {
     display: table-cell;
@@ -305,13 +306,18 @@ p{
 }
 .gameitem .lose>.content {
     table-layout: fixed;
-    background-color: #e2b6b3;
-    border-color: #cea7a7;
+    background-color: #FBDDE5;
+    /* border-color: #FFB5CC; */
+}
+.gameitem .win>.content {
+    table-layout: fixed;
+    background-color: rgba(205, 176, 226, 0.35);
+    /*border-color: #9EC2E2;*/
 }
 .gameitem>.content>.gamestats {
     width: 100px;
     text-align: center;
-    font-size: 11px;
+    font-size: 13px;
     color: #555;
     line-height: 16px;
 }
@@ -334,6 +340,9 @@ p{
 }
 .gameitem .lose>.content>.gamestats>.gameresult {
     color: #c6443e;
+}
+.gameitem .win>.content>.gamestats>.gameresult {
+    color: #9EC2E2;
 }
 .gameitem>.content>.gamestats>.gameresult {
     font-weight: bold;
@@ -395,8 +404,8 @@ p{
     font-size: 15px;
     white-space: nowrap;
 }
-.gameitem>.content>.KDA>.KDA>span.kill, .gameitem>.content>.KDA>span.assist {
-    color: #555e5e;
+.gameitem>.content>.KDA>.KDA>span.kill{
+    color: #2e8b57;
     font-weight: bold;
 }
 .gameitem>.content>.KDA>.KDA>span.death {
@@ -413,8 +422,8 @@ p{
     color: #353a3a;
 }
 .gameitem>.content>.stats {
-    width: 90px;
-    font-size: 11px;
+    width: 100px;
+    font-size: 12px;
     text-align: center;
     line-height: 18px;
     color: #555e5e;
@@ -446,7 +455,7 @@ p{
     height: 100%;
 }
 .gameitem>.content>.followplayers {
-    width: 170px;
+    width: 270px;
     font-size: 0;
 }
 .team {
@@ -455,11 +464,15 @@ p{
 }
 .summoner {
     display: block;
-    width: 80px;
-    height: 18px;
+    width: 100px;
+    height: 23px;
     margin-left: 3px;
     text-align: left;
     white-space: nowrap;
+}
+.summonername:hover{
+  color: #121314;
+  font-weight: 300;
 }
 .championimage {
   display: inline-block;
@@ -468,12 +481,19 @@ p{
 }
 .summonername {
   display: inline-block;
-  max-width: 60px;
+  max-width: 100px;
   vertical-align: middle;
-  font-size: 11px;
+  font-size: 12px;
   color: #555;
 }
 .subteamimage{
   width: 16px !important;
   height: 16px !important;
+}
+.content:hover{
+    -webkit-box-shadow: 1 2px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+    box-shadow: 1 2px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+    -webkit-box-shadow: 0 1px 1px 0 var(--gm-fillbutton-keyshadow-color,rgba(60,64,67,0.3)),0 1px 3px 1px var(--gm-fillbutton-ambientshadow-color,rgba(60,64,67,0.15));
+    box-shadow: 0 2px 2px 0 var(--gm-fillbutton-keyshadow-color,rgba(60,64,67,0.3)),0 1px 3px 1px var(--gm-fillbutton-ambientshadow-color,rgba(60,64,67,0.15));
+    cursor: pointer;
 }

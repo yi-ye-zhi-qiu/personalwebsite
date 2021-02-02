@@ -28,23 +28,31 @@
           <!-- inputbox -->
           <input dataset id="input-box" name="input" type="text">
 
-
           {% for key,value in form.items() %}
             <br><h2> {{value}}</h2>
           {% endfor %}
 
-          <!--{{ D_df.loc[D_df['summonerName'] == 'ye qiu11'] }}-->
-
+          {% for a in dfs: %}
+          {% set D_df = dfs[a]  %}
           <div class="gamelist">
             <div class="gameitem">
-              <div class="gameitem lose">
+              <div id="lose_win" class="gameitem">
                 <div class="content">
+                  <script type="text/javascript">
+                    let lose_win = ("{{  D_df.loc[D_df['summonerName'] == name]['win'].values[0] }}")
+                    if(lose_win !== 'False'){
+                      lose_win = 'win'
+                    } else{
+                      lose_win = 'win'
+                    }
+                    document.querySelector("#lose_win").classList.add(lose_win);
+                  </script>
                   <div class="gamestats">
                     <div class="gametype">
                       {{ D_df.loc[D_df['summonerName'] == name]['gameMode'].values[0] }}
                     </div>
                     <div class="timestamp">
-                      {{ D_df.loc[D_df['summonerName'] == name]['gameCreation'].values[0] }}
+                      {{ D_df.loc[D_df['summonerName'] == name]['lastGamePlayedWhen'].values[0] }} days ago
                     </div>
                     <div class="bar"></div>
                     <div class="gameresult">
@@ -154,6 +162,9 @@
               </div>
             </div>
           </div>
+          {% endfor %}
+
+
         </form>
       </div>
     </div>

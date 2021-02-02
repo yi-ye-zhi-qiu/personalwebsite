@@ -2,47 +2,39 @@ from riotwatcher import LolWatcher, ApiError
 import pandas as pd
 import numpy as np
 import pprint
+from datetime import datetime
 
-pd.set_option('display.max_columns', None)
-
-#define as static variables for now, must be updated via form info
-api_key = ''
-watcher = LolWatcher(api_key)
-region = 'na1'
-gamemode = 'CLASSIC'
-name = 'Divine Right'
-champion_id = 81 #currently dont see how this will be useful but ok
-
-class game_info_by_summoner_name():
+class game_info_by_match_id():
     """
     Returns df of user info from a given match (so far).
     """
-
     #define private variables to use in class
-    user = watcher.summoner.by_name(region, name)
 
-    def __init__(self, api_key, region, name, champion_id, gamemode):
+    def __init__(self, api_key, name, region, gamemode, gameid):
+        #upon calling the class we pass in a bunch of things to initialize^
         self.api_key = api_key
+        self.name = name
         self.region = region
-        self.champion_id = champion_id
         self.gamemode = gamemode
+        self.gameid = gameid
+        watcher = LolWatcher(self.api_key)
+        self.user = watcher.summoner.by_name(region, name)
 
     def rank_stats(self):
+        watcher = LolWatcher(self.api_key)
+
         #league, division, games played, etc.
-        encrypted_summoner_id = user['id']
-        self.rank_stats = watcher.league.by_summoner(region, self.user['id'])
+        encrypted_summoner_id = self.user['id']
+        self.rank_stats = watcher.league.by_summoner(self.region, self.user['id'])
         return self.rank_stats
 
     def match_data(self):
-        self.matches = watcher.match.matchlist_by_account(region, self.user['accountId'])
+        watcher = LolWatcher(self.api_key)
 
-        self.last_match = self.matches['matches'][0]
+        self.matches = watcher.match.matchlist_by_account(self.region, self.user['accountId'])
 
-       # self.last_match = self.matches['matches'][0]
-        self.last_match_data = watcher.match.by_id(region, self.last_match['gameId'])
-
-        m = self.last_match_data
-        #pprint.pprint(m)
+        self.match_data = watcher.match.by_id(self.region, self.gameid)
+        m = self.match_data
 
         #n is for each "participant" or player in the match
         def gd():
@@ -74,7 +66,6 @@ class game_info_by_summoner_name():
                 m_row['visionWardsBoughtInGame'] = row['stats']['visionWardsBoughtInGame']
                 m_row['visionScore'] = row['stats']['visionScore']
                 m_row['creepsPerMinDeltas'] = row['timeline']['creepsPerMinDeltas']
-                #m_row['csDiffPerMinDeltas'] = row['timeline']['csDiffPerMinDeltas']
                 m_row['goldPerMinDeltas'] = row['timeline']['goldPerMinDeltas']
                 m_row['lane'] = row['timeline']['lane']
                 m_row['ccScore'] = row['stats']['totalTimeCrowdControlDealt']
@@ -88,7 +79,7 @@ class game_info_by_summoner_name():
             n[i]['summonerName'] = m['participantIdentities'][i]['player']['summonerName']
             n[i]['profileIcon'] = m['participantIdentities'][i]['player']['profileIcon']
 
-        latest = watcher.data_dragon.versions_for_region(region)['n']['champion']
+        latest = watcher.data_dragon.versions_for_region(self.region)['n']['champion']
         static_champ_list = watcher.data_dragon.champions(latest, False, 'en_US')
         static_item_list = watcher.data_dragon.items(latest, 'en_US')
         static_summonerspell_list = watcher.data_dragon.summoner_spells(latest, 'en_US')
@@ -145,13 +136,21 @@ class game_info_by_summoner_name():
         df = g_c(n)
 
         #add in extra columns
-        df['gameDuration'] = m['gameDuration'] / 60
+        df['gameDuration'] = round((m['gameDuration'] / 60),2)
         df['gameMode'] = m['gameMode']
-        df['gameCreation'] = m['gameCreation']
+        df['gameCreation'] = m['gameCreation'] / 1000
         df['kda'] = ((df['kills'] + df['assists']) / df['deaths']).round(2)
         df['killParticipation'] = ((df['kills'] + df['assists'])/ df.groupby('teamId')['kills'].transform(np.sum) * 100).astype(int)
         df['minionsKilledPerMinute'] = (df['totalMinionsKilled'] / df['gameDuration']).round(1)
 
+        #get time since last played (in days)
+        now = datetime.now()
+        last_game_played_when = df['gameCreation'].values[0]
+        last_game_played_when = datetime.fromtimestamp(last_game_played_when)
+
+        df['lastGamePlayedWhen'] = (now - last_game_played_when).days
+
+        #get first blood, baron kills, etc.
         def g_t(df, m):
             def x(y):
                 m_id = m['teams'][0]['teamId']
@@ -165,4 +164,4 @@ class game_info_by_summoner_name():
 
         df = g_t(df, m)
 
-        return df, m
+        return df
