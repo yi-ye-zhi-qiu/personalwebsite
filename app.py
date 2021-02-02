@@ -65,27 +65,31 @@ def riot_api_call():
         name = form[key]
     #define as static variables for now, must be updated via form info
     api_key = ''
-    region = 'na1'
     gamemode = 'CLASSIC'
+    region = 'na1'
 
     watcher = LolWatcher(api_key)
     user = watcher.summoner.by_name('na1', name)
     matches = watcher.match.matchlist_by_account(region, user['accountId'])
 
     game_ids = []
-    for i in range(0,10): #display 10 games
+
+    for i in range(0,2): #display 10 games
         game_ids.append(matches['matches'][i]['gameId'])
 
-    # onload_display = pd.DataFrame()
-    # for game in game_ids:
-    #     gameid = game
+    ranked_info = game_info_by_match_id(api_key, name, region,
+                                        gamemode, game_ids[0]).rank_stats()
+    ranked_info = pd.DataFrame(ranked_info)
+    if ranked_info.empty:
+        ranked_info = pd.DataFrame({'tier': ['unranked']})
+
     dfs = {}
     for gameid in game_ids:
         dfs[gameid] = game_info_by_match_id(api_key,
                                           name, region,
                                           gamemode, gameid).match_data()
 
-    return render_template('public/league2.html', game_ids = game_ids, form = form, dfs=dfs, name=name)
+    return render_template('public/league2.html', ranked_info=ranked_info, game_ids = game_ids, form = form, dfs=dfs, name=name)
 
 if __name__ == '__main__':
     app.run()

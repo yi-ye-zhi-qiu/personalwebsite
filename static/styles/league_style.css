@@ -22,6 +22,9 @@ form{
   padding-top: 5vh;
   height: 30vh;
 }
+.search_done{
+  top: 0% !important;
+}
 :root {
   --placeholder-color: #121314;
 }
@@ -213,6 +216,11 @@ canvas {
   }
 }
 
+h2 > div.a{
+  font-weight: normal;
+
+}
+
 .xx {
   min-height: 100vh;
   box-sizing: inherit;
@@ -311,7 +319,7 @@ p{
 }
 .gameitem .win>.content {
     table-layout: fixed;
-    background-color: rgba(205, 176, 226, 0.35);
+    background-color: rgba(180, 249, 165, 0.5);
     /*border-color: #9EC2E2;*/
 }
 .gameitem>.content>.gamestats {

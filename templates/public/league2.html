@@ -10,7 +10,7 @@
     <div class="xx">
       <div class="xy">
 
-        <form id="riot-api-form" action="{{ url_for('riot_api_call') }}" method="post">
+        <form id="riot-api-form" class="search_done" action="{{ url_for('riot_api_call') }}" method="post">
           <p class="rev-block"><span>搜索一下你英雄联盟的用户名</span></p>
           <!-- progress bar -->
           <div class="vcmvz" aria-hidden="true">
@@ -29,24 +29,30 @@
           <input dataset id="input-box" name="input" type="text">
 
           {% for key,value in form.items() %}
-            <br><h2> {{value}}</h2>
+            <br><h2> {{value}} ,
+              {% if ranked_info['tier'].values[0] != 'unranked': %}
+              <div class="a">
+                {{ ranked_info['tier'].values[0] }}
+                {{ ranked_info['rank'].values[0] }}
+                {{ ranked_info['leaguePoints'].values[0] }} LP,
+                W: {{ ranked_info['wins'].values[0] }}
+                L: {{ ranked_info['losses'].values[0] }}
+              </div>
+              {% endif %}
+              {% if ranked_info['tier'].values[0] == 'unranked': %}
+              <div class="a">
+                unranked
+              </div>
+              {% endif %}
+            </h2>
           {% endfor %}
 
           {% for a in dfs: %}
           {% set D_df = dfs[a]  %}
           <div class="gamelist">
             <div class="gameitem">
-              <div id="lose_win" class="gameitem">
+              <div class="gameitem {{ 'win' if D_df.loc[D_df['summonerName'] == name]['win'].values[0] == '胜利' else 'lose' }}">
                 <div class="content">
-                  <script type="text/javascript">
-                    let lose_win = ("{{  D_df.loc[D_df['summonerName'] == name]['win'].values[0] }}")
-                    if(lose_win !== 'False'){
-                      lose_win = 'win'
-                    } else{
-                      lose_win = 'win'
-                    }
-                    document.querySelector("#lose_win").classList.add(lose_win);
-                  </script>
                   <div class="gamestats">
                     <div class="gametype">
                       {{ D_df.loc[D_df['summonerName'] == name]['gameMode'].values[0] }}
