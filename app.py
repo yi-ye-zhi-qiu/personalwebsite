@@ -1,8 +1,8 @@
 from flask import *
 from flask import Flask, render_template, request, jsonify, make_response
-from python_data_apps.movies_db import get_movie_data
+from src.movies_db import get_movie_data
 from riotwatcher import LolWatcher, ApiError
-from python_data_apps.riot_api import game_info_by_match_id
+from src.riot_api import game_info_by_match_id
 import pandas as pd
 
 app = Flask(__name__)
@@ -74,7 +74,7 @@ def riot_api_call():
 
     game_ids = []
 
-    for i in range(0,2): #display 10 games
+    for i in range(0,1): #display 10 games
         game_ids.append(matches['matches'][i]['gameId'])
 
     ranked_info = game_info_by_match_id(api_key, name, region,
