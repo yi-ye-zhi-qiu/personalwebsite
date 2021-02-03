@@ -1,8 +1,8 @@
 from flask import *
 from flask import Flask, render_template, request, jsonify, make_response
-from src.movies_db import get_movie_data
+from models.liamometer import get_movie_data
 from riotwatcher import LolWatcher, ApiError
-from src.riot_api import game_info_by_match_id
+from models.liam_gg import game_info_by_match_id
 import pandas as pd
 
 app = Flask(__name__)
@@ -92,7 +92,7 @@ def riot_api_call():
                                           name, region,
                                           gamemode, gameid).match_data()
 
-    return render_template('public/league2.html', rank=rank, ranked_info=ranked_info, game_ids = game_ids, form = form, dfs=dfs, name=name)
+    return render_template('public/liam.gg.html', rank=rank, ranked_info=ranked_info, game_ids = game_ids, form = form, dfs=dfs, name=name)
 
 if __name__ == '__main__':
     app.run()
