@@ -74,17 +74,40 @@ $('.button--bubble').each(function() {
   });
 });
 
-function parallax_height() {
-  var scroll_top = $(this).scrollTop();
-  var sample_section_top = $(".sample-section").offset().top;
-  var header_height = $(".sample-header-section").outerHeight();
-  $(".sample-section").css({ "margin-top": header_height });
-  $(".sample-header").css({ height: header_height - scroll_top });
+window.addEventListener('scroll', scrollFunc);
+
+function scrollFunc() {
+    var windowScroll = this.scrollY;
+
+    var $logo = document.getElementsByClassName('logo')[0];
+    $logo.style.transform = 'translateY(' + windowScroll/2 + '%)';
+
+    var $backBird = document.getElementsByClassName('back-bird')[0];
+    $backBird.style.transform = 'translateY(' + windowScroll/4 + '%)';
+
+    var $foreBird = document.getElementsByClassName('fore-bird')[0];
+    $foreBird.style.transform = 'translateY(-' + windowScroll/100 + '%)';
+
 }
-parallax_height();
-$(window).scroll(function() {
-  parallax_height();
-});
-$(window).resize(function() {
-  parallax_height();
-});
+
+
+let color_selector = () => {
+
+  var border = document.querySelector('.bird-box'),
+   lp = document.querySelector('.lp'),
+   wins = document.querySelector('.wins'),
+   loses = document.querySelector('.loses'),
+   rank = document.querySelector('#persons-rank').textContent.toLowerCase(),
+   color_arr = [['bronze', '#d4a373'],['silver','#d2d2cf'],
+                  ['gold','#ffb646'],['diamond','#9bf6ff'],
+                  ['master','#7371fc'],
+                  ['challenger','linear-gradient(100deg, #ffabab, #ffdaab, #ddffab, #abe4ff, #d9abff)']];
+
+  for(let i=0; i<color_arr.length; i++){
+    if(color_arr[i][0] === rank){
+      border.style.borderBottom = '10px solid'+color_arr[i][1]
+      
+    }
+  }
+}
+color_selector()

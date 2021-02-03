@@ -25,11 +25,16 @@ form{
 :root {
   --placeholder-color: #121314;
 }
-span,
 input {
 	padding:.25em .5em .3125em;
 	color:var(--placeholder-color);
 	transition:all .100s;
+  border: none;
+}
+span {
+  padding:.25em .5em .3125em;
+  color:var(--placeholder-color);
+  transition:all .100s;
   border: none;
 }
 .presearch-input{
@@ -39,7 +44,7 @@ input {
 .aftersearch-input{
   float: right;
   font-size: 1em;
-  background: white !important;
+  background: #f8f8ff;
 }
 #input-box{
   display: inline-block;
@@ -74,7 +79,6 @@ canvas {
 	bottom:0;
 	pointer-events:none;
 }
-
 .vcmvz{
   height: 14px;
   overflow: hidden;
@@ -217,30 +221,42 @@ canvas {
       transform: translateX(55.444446%);
   }
 }
-
-h2 > div.a{
-  font-weight: normal;
-  line-height: 0.5em !important;
-}
 h2{
-  font-size: 3em !important;
-  white-space: nowrap !important;
+  font-size: 24px;
+  text-align: center;
 }
 
 /** do this to make loading bar at top of page */
+.loadingbar{
+    box-sizing: inherit;
+    display: flex;
+    flex-direction: column;
+    display: webkit-box;
+    display: webkit-flex;
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+}
+.loadingbar_sub{
+  padding: 0px 24px 24px;
+  overflow: hidden;
+  flex-grow: 1;
+  -webkit-box-flex: 1;
+}
 .xx {
   height: 10vh;
   box-sizing: inherit;
   display: flex;
-  flex-direction: column;
-  display: webkit-box;
-  display: webkit-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
   position: relative;
   z-index: 2;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  flex-direction: column;
+  margin-right: 10em;
+  margin-left: 8em;
 }
 .xy{
   padding: 0px 24px 36px;
@@ -255,18 +271,17 @@ p{
   position: absolute;
   top: -10%;
 }
-.rev-block{
-  position: absolute;
-}
-.rev-block .again span{
-  color: white !important;
-}
 .rev-block span{
   opacity: 0;
   animation: appear-text 0.0001s linear forwards;
   animation-delay: .4s;
 }
-
+.rev-block{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
 .rev-block:after{
   content: '';
   top: 0;
@@ -301,6 +316,10 @@ p{
 }
 .gamelist{
   padding-top: 40px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  align-content: flex-end;
 }
 .gamelist>.gameitem {
   margin-top: 8px;
@@ -320,6 +339,8 @@ p{
     display: table-cell;
     height: 96px;
     vertical-align: middle;
+
+
 }
 .gameitem .lose>.content {
     table-layout: fixed;
@@ -637,64 +658,48 @@ p{
   top: 50%;
   margin-top: -25px;
 }
-/* @keyframes hue-rotate {
-  from {
-    -webkit-filter: hue-rotate(0);
-    -moz-filter: hue-rotate(0);
-    -ms-filter: hue-rotate(0);
-    filter: hue-rotate(0);
-  }
-  to {
-    -webkit-filter: hue-rotate(360deg);
-    -moz-filter: hue-rotate(360deg);
-    -ms-filter: hue-rotate(360deg);
-    filter: hue-rotate(360deg);
-  }
-} */
-.persons-name {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 100;
-  text-decoration: none;
-  user-select: none;
-  letter-spacing: 2px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  background-color: #f6f6f6;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+
+.bird-box {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
 }
-.persons-name::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #f6f6f6;
-  opacity: 0.3;
+.logo {
+    height: 250px;
+    width: 100%;
+    text-align: center;
+    font-size:
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    font-size: 50px;
+    font-weight: 200;
+    line-height: 1.2;
+    letter-spacing: .2rem;
+    text-align: center;
 }
-.persons-name-section {
-  position: relative;
-  max-width: 640px;
-  float: left;
-  padding-left: 10em;
-  margin-right: auto;
-  color: white;
+.fore-bird {
+    display: flex;
+    position: absolute;
+    left: 55%;
+    top: 100px;
 }
-.text-wrap {
-  position: relative;
-  background-color: transparent;
-  z-index: 3;
-  padding-top: 5em;
+.ranked_stats{
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
 }
-.text-section {
-  background-color: white;
-  position: relative;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 40px;
+.lp{
+  margin-top: 88px;
+}
+
+.profile-pic{
+  width: 200px
+}
+.back-bird {
+    width: 100%;
+    position: absolute;
+    left: 50%;;
+    margin-left: -480px;
 }

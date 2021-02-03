@@ -74,7 +74,7 @@ def riot_api_call():
 
     game_ids = []
 
-    for i in range(0,1): #display 10 games
+    for i in range(0,10): #display 10 games
         game_ids.append(matches['matches'][i]['gameId'])
 
     ranked_info = game_info_by_match_id(api_key, name, region,
@@ -83,13 +83,16 @@ def riot_api_call():
     if ranked_info.empty:
         ranked_info = pd.DataFrame({'tier': ['unranked']})
 
+    rank_league = ranked_info['tier'].values[0].lower()
+    rank = "/static/images/ranked-emblems/"+rank_league+".png"
+
     dfs = {}
     for gameid in game_ids:
         dfs[gameid] = game_info_by_match_id(api_key,
                                           name, region,
                                           gamemode, gameid).match_data()
 
-    return render_template('public/league2.html', ranked_info=ranked_info, game_ids = game_ids, form = form, dfs=dfs, name=name)
+    return render_template('public/league2.html', rank=rank, ranked_info=ranked_info, game_ids = game_ids, form = form, dfs=dfs, name=name)
 
 if __name__ == '__main__':
     app.run()
