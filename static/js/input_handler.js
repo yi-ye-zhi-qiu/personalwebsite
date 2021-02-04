@@ -11,22 +11,6 @@ const form = $("#riot-api-form");
            return true;
 });
 
-//manipulate input datastate
-const a = document.querySelector('input')
-a.addEventListener('input', evt => {
-  const value = a.value
-  if (!value) {
-    a.dataset.state = ''
-    return
-  }
-  const trimmed = value.trim()
-  if (trimmed) {
-    a.dataset.state = 'valid'
-  } else {
-    a.dataset.state = 'invalid'
-  }
-})
-
 $('.button--bubble').each(function() {
   var $circlesTopLeft = $(this).parent().find('.circle.top-left');
   var $circlesBottomRight = $(this).parent().find('.circle.bottom-right');
@@ -94,6 +78,7 @@ function scrollFunc() {
 let color_selector = () => {
 
   var border = document.querySelector('.bird-box'),
+   borders = document.querySelectorAll('.content'),
    lp = document.querySelector('.lp'),
    wins = document.querySelector('.wins'),
    loses = document.querySelector('.loses'),
@@ -106,8 +91,50 @@ let color_selector = () => {
   for(let i=0; i<color_arr.length; i++){
     if(color_arr[i][0] === rank){
       border.style.borderBottom = '10px solid'+color_arr[i][1]
-      
+      for( let j=0; j<borders.length; j++){
+        borders[j].style.borderCollapse = 'separate'
+        borders[j].style.borderSpacing = '5px'
+        borders[j].style.paddingBottom = '10px'
+        borders[j].style.borderBottom = '2px solid'+color_arr[i][1]
+      }
     }
   }
 }
 color_selector()
+
+function fade_out(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1){
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+    element.dataset.state ='faded_out'
+}
+
+function fade_in(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+            element.style.display = 'block';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+    element.dataset.state ='faded_in'
+}
+
+var show_deets = document.querySelectorAll('.game_deets')
+var btn = document.querySelectorAll('.content')
+for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", function() {
+      if(show_deets[i].dataset.state==='faded_out'){ fade_in(show_deets[i])}
+      else{fade_out(show_deets[i])}
+    });
+}

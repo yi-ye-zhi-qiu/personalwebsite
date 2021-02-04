@@ -74,7 +74,7 @@ def riot_api_call():
 
     game_ids = []
 
-    for i in range(0,10): #display 10 games
+    for i in range(0,3): #display 10 games
         game_ids.append(matches['matches'][i]['gameId'])
 
     ranked_info = game_info_by_match_id(api_key, name, region,

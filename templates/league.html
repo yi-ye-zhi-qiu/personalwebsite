@@ -7,26 +7,23 @@
     <title>league_data</title>
   </head>
   <body>
-    <div class="xx">
+    <div class="xx presearch">
+      <p class="rev-block"><span>你英雄联盟的用户名</span></p>
       <div class="xy">
-        <form id="riot-api-form" action="{{ url_for('riot_api_call') }}" method="post">
-          <p class="rev-block"><span>搜索一下你英雄联盟的用户名</span></p>
-          <!-- progress bar -->
-          <div class="vcmvz" aria-hidden="true">
-            <div class="ghgtu" role="progressbar">
-              <div class="kiasd"></div>
-              <div class="yuuyx"></div>
-              <div class="yuri">
-                <span class="I3ed"></span>
-              </div>
-              <div class="QeRzxYT">
-                <span class="I4ed"></span>
-              </div>
+        <div class="vcmvz" aria-hidden="true">
+          <div class="ghgtu" role="progressbar">
+            <div class="kiasd"></div>
+            <div class="yuuyx"></div>
+            <div class="yuri">
+              <span class="I3ed"></span>
+            </div>
+            <div class="QeRzxYT">
+              <span class="I4ed"></span>
             </div>
           </div>
-          <!-- inputbox -->
-          <input dataset id="input-box" name="presearch-input" type="text">
-
+        </div>
+        <form id="riot-api-form" action="{{ url_for('riot_api_call') }}" method="post">
+          <input dataset id="input-box" class="presearch-input" name="presearch-input" type="text">
         </form>
       </div>
     </div>

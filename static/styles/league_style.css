@@ -30,13 +30,25 @@ input {
 	color:var(--placeholder-color);
 	transition:all .100s;
   border: none;
+  spellcheck: false;
 }
-span {
+/* span {
   padding:.25em .5em .3125em;
   color:var(--placeholder-color);
   transition:all .100s;
   border: none;
+} */
+
+
+.presearch{
+  height: 100vh !important;
+  padding-top: 10vh !important;
 }
+.presearch>p{
+  top: 0 !important;
+}
+
+
 .presearch-input{
   font-size:1.75em;
   background: transparent;
@@ -64,6 +76,23 @@ span {
     border-bottom: 10px solid #dafdda;
   }
 }
+
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.arrow {
+  border: solid black;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 5px;
+}
+.arrow:hover{
+  margin-left: -10px;
+  cursor: pointer;
+}
+
 
 
 input:focus{
@@ -271,25 +300,73 @@ p{
   position: absolute;
   top: -10%;
 }
+
+
+.bird-box {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+}
+.logo {
+    height: 250px;
+    width: 100%;
+    text-align: center;
+    font-size:
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    font-size: 50px;
+    font-weight: 200;
+    line-height: 1.2;
+    letter-spacing: .2rem;
+    text-align: center;
+}
+.fore-bird {
+    display: flex;
+    position: absolute;
+    left: 55%;
+    top: 100px;
+}
+.ranked_stats{
+  display: flex;
+  flex-direction: column;
+  font-weight: 200;
+}
+.lp{
+  margin-top: 88px;
+}
+.profile-pic{
+  width: 200px
+}
+.back-bird {
+    width: 100%;
+    position: absolute;
+    margin-left: -480px;
+    z-index: 4;
+}
+
 .rev-block span{
   opacity: 0;
-  animation: appear-text 0.0001s linear forwards;
-  animation-delay: .4s;
+  animation: appear-text 1s linear forwards;
 }
 .rev-block{
   position: absolute;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width:1px;
+  word-wrap: break-word;
+  margin-left: 35%;
 }
 .rev-block:after{
   content: '';
+  font-weight: 600;
   top: 0;
   left: 0;
   position: absolute;
   width: 0%;
   height: 100%;
-  background: #dafdfd;
+  background: rgba(218, 253, 253, 1);
   animation: rev-block 1.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 @keyframes rev-block {
@@ -303,7 +380,7 @@ p{
   }
   100% {
     left: 100%;
-    width: 0%;
+    width: 1000%;
   }
 }
 @keyframes appear-text{
@@ -339,12 +416,9 @@ p{
     display: table-cell;
     height: 96px;
     vertical-align: middle;
-
-
 }
 .gameitem .lose>.content {
     table-layout: fixed;
-    /* border-color: #FFB5CC; */
 }
 .gameitem .win>.content {
     table-layout: fixed;
@@ -441,14 +515,20 @@ p{
     color: #879292;
     font-size: 15px;
     white-space: nowrap;
+    padding:.25em .5em .3125em;
+
 }
 .gameitem>.content>.KDA>.KDA>span.kill{
     color: #2e8b57;
     font-weight: bold;
+    padding:.25em .5em .3125em;
+
 }
 .gameitem>.content>.KDA>.KDA>span.death {
     color: #c6443e;
     font-weight: bold;
+    padding:.25em .5em .3125em;
+
 }
 
 .gameitem>.content>.KDA>.KDAratio {
@@ -456,6 +536,8 @@ p{
     font-size: 12px;
     font-weight: bold;
     margin-top: 6px;
+    padding:.25em .5em .3125em;
+
 }
 .gameitem>.content>.KDA>.badge {
     display: inline-block;
@@ -475,6 +557,8 @@ p{
     border: solid 1px #b88a2a;
 }
 .gameitem>.content>.KDA>.KDAratio>.KDAratio{
+  padding:.25em .5em .3125em;
+
     color: #353a3a;
 }
 .gameitem>.content>.stats {
@@ -557,6 +641,8 @@ p{
 * {
   box-sizing: border-box;
 }
+
+/* artist of this button: Adrien Grsmto*/
 .ab {
   display: inline-block;
   float: right;
@@ -653,53 +739,296 @@ p{
   width: 1px;
   height: 1px;
 }
-
 .button--bubble__container {
   top: 50%;
   margin-top: -25px;
 }
+.game_deets{
+  display: none;
+  background: #e89d99;
+}
+.game_deets_content{
+  background: #ededed;
+  border-top: none;
+}
+.game_deets_table{
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.yi{
+  width: 44px;
+}
+.er, .san{
+  width: 18px;
+}
+.wu{
+  width: 65px;
+}
+.liu, .shi{
+  width: 55px;
+}
+.qi{
+  width: 76px;
+}
+.ba{
+  width: 66px;
+}
+.jiu{
+  width: 48px;
+}
+.shiyi{
+  width: 170px;
+}
 
-.bird-box {
-    height: 300px;
-    position: relative;
-    overflow: hidden;
-    background-color: white;
+tr:hover{
+  background-color: #f3f3f3;
 }
-.logo {
-    height: 250px;
-    width: 100%;
-    text-align: center;
-    font-size:
-    position: absolute;
-    top: 50%;
-    margin-top: -50px;
-    font-size: 50px;
-    font-weight: 200;
-    line-height: 1.2;
-    letter-spacing: .2rem;
-    text-align: center;
+
+.胜利 {
+  border: 1px solid #fff;
+  background-color: #dafdda;
 }
-.fore-bird {
-    display: flex;
-    position: absolute;
-    left: 55%;
-    top: 100px;
+.失败{
+  border: 1px solid #fff;
+  background-color: #f99191;
 }
-.ranked_stats{
+.wo-tr:first-child{
+  padding-left: 15px;
+  text-align: left;
+  color: blue;
+}
+.wo-tr-thead{
+  height: 32px;
+  color: #121314;
+  font-size: 12px;
+  font-weight: normal;
+}
+.ni{
+  background-color: #fff;
+  /*border: solid 1px #d8c0be;*/
+}
+.ni-cell{
+  padding-top: 4px;
+  padding-left: 10px;
+  padding-right: 4px;
+  padding: 3px 0;
+  vertical-align: middle;
+}
+.ni-champ-encaser{
+  position: relative;
+  display: block;
+}
+.ni-champ-image{
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.ni-champ-level{
+  position: absolute;
+  left: -3px;
+  bottom: -3px;
+  width: 15px;
+  height: 15px;
+  background: black;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  text-height: 15px;
+}
+
+.ni-spell-image{
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.ni-summoner-name{
+  padding-left: 5px;
+  white-space: nowrap;
+  text-overflow: elipsis;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.ni-rank{
+  color: #555e5e;
+  font-size: 11px;
+  text-align: center;
+}
+.ni-lr-score{
+  text-align: center;
+  white-space: nowrap;
+  font-size: 10px;
+}
+.ni-lr-score-text{
+  color: #333333;
+  font-size: 11px;
+  height: 14px;
+}
+.ni-lr-score-place{
+  color: #fff;
+  border-radius: 7px;
+  padding: 2px;
+  margin: 0 auto;
+  width: 30px;
+  height: 10px;
+  line-height: 1;
+  background-color: #a9a9a9;
+}
+
+.ni-kill, .ni-deaths, .ni-assists{
+  color: #121314;
+  font-size: 12px;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: -5px;
+}
+.ni-kill{
+  background:#dafdda;
+}
+.ni-deaths{
+  background: #f99191;
+}
+.ni-assists{
+  background: #dadafd;
+}
+.ni-kda{
+  color: #555e5e;
+  font-size: 11px;
+}
+
+
+.ni-damage{
+  text-align: center;
+}
+.ni-champ-damage{
+  color: #555e5e;
+  font-size: 11px;
+}
+.ni-champ-damage-progress{
+  width: 50px;
+  height: 6px;
+  margin: 0 auto;
+  background-color: #f2f2f2;
+}
+.ni-champ-damage-progress-full{
+  height: 100%;
+  background-color: #ee5a52;
+}
+
+
+.ni-wards{
+  text-align: center;
+  color: #555e5e;
+  font-size: 11px;
+}
+
+.ni-cs{
+  text-align: center;
+  color: #777;
+  font-size: 11px;
+}
+.ni-cs-value{
+  color: #555e5e;
+}
+
+.ni-items{
+  text-align: center;
+  font-size: 0;
+}
+.ni-item{
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-left: 1px;
+  vertical-align: middle;
+}
+.ni-item-image{
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.yi-qi-fen-kai{
   display: flex;
-  flex-direction: column;
-  font-weight: 200;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 1px solid #121314;
+  border-right: 1px solid #121314;
+  background-color: #f3f3f3;
 }
-.lp{
-  margin-top: 88px;
+.yi-qi-fen-kai-team:first-child{
+  padding-right: 0;
+  padding-left: 10px;
+  text-align: left;
 }
-
-.profile-pic{
-  width: 200px
+.yi-qi-fen-kai-team{
+  display: table-cell;
+  height: 40px;
+  vertical-align: middle;
+  padding-right: 10px;
+  text-align: right;
+  line-height: 30px;
 }
-.back-bird {
-    width: 100%;
-    position: absolute;
-    left: 50%;;
-    margin-left: -480px;
+.yi-qi-fen-kai-team-objective-score{
+  display: inline-block;
+  font-size: 11px;
+  color: #555;
+  filter: grayscale(1);
+}
+.yi-qi-fen-kai-team-objective-score-image{
+  display: inline-block;
+  margin-right: 3px;
+  vertical-align: middle;
+  height: 16px;
+  filter: grayscale(1);
+}
+.yi-qi-fen-kai-summary-graph{
+    flex: 0 1 390px;
+}
+.yi-qi-fen-kai-summary-graph-total-container:first-child{
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.yi-qi-fen-kai-summary-graph-total-container{
+  display: flex;
+  justify-content: center;
+  padding: 0 8px;
+}
+.graph--text{
+  font-size: 10px;
+  color: #222222;
+}
+.graph--title{
+  text-align: left;
+  width: 60px;
+}
+.graph--text--left{
+  text-align: right;
+}
+.graph--data{
+  width: 40px;
+}
+.graph--container{
+  flex: 0 1 290px;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  margin: 0 3px;
+}
+.graph--losing--team{
+  /* background-color: #f99191; */
+  margin-right: 4px;
+  flex: 1;
+  height: 10px;
+}
+.winningteam{
+  /* background-color: #dafdda; */
+  margin-left: 4px;
+  flex: 1;
+  height: 10px;
 }

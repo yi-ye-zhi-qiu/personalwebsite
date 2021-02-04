@@ -1,7 +1,6 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/league_style.css') }}">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <meta charset="utf-8">
     <title>league_data</title>
@@ -29,7 +28,7 @@
                 </div>
               </div>
               <div class="back-bird">
-
+                  <a href="{{ url_for('show_league') }}"><i class="arrow left"></i></a>
               </div>
               <div class="logo">
                 {{value}}
@@ -110,7 +109,11 @@
                         {{ D_df.loc[D_df['summonerName'] == name]['gameMode'].values[0] }}
                       </div>
                       <div class="timestamp">
-                        {{ D_df.loc[D_df['summonerName'] == name]['lastGamePlayedWhen'].values[0] }} days ago
+                        {% if D_df.loc[D_df['summonerName'] ==name]['lastGamePlayedWhen'].values[0] != 0: %}
+                          {{ D_df.loc[D_df['summonerName'] == name]['lastGamePlayedWhen'].values[0] }} days ago
+                        {% else %}
+                          today
+                        {% endif %}
                       </div>
                       <div class="bar"></div>
                       <div class="gameresult">
@@ -219,6 +222,374 @@
                        {% endfor %}
                      </div>
                     </div>
+                  </div>
+
+                  <!-- collapsable game details -->
+                  <div class="game_deets">
+                    <div class="game_deets_content">
+                      <table class="game_deets_table">
+                        <!-- set up the width of our columns -->
+                        <colgroup>
+                          <col class="yi">
+                          <col class="er">
+                          <col class="san">
+                          <col class="si">
+                          <col class="wu">
+                          <col class="liu">
+                          <col class="qi">
+                          <col class="ba">
+                          <col class="jiu">
+                          <col class="shi">
+                          <col class="shiyi">
+                        </colgroup>
+                        <!-- set up table header row -->
+                        <thead class="wo {{ D_df.loc[D_df['summonerName'] == name]['win'].values[0] }} ">
+                          <tr class="wo-tr">
+                            <th class="wo-tr-thead" colspan="4">
+                              <!-- game result of summoner's team-->
+                              {{ D_df.loc[D_df['summonerName'] == name]['win'].values[0] }}
+                            </th>
+                            <th class="wo-tr-thead">
+                              Tier
+                            </th>
+                            <th class="wo-tr-thead">
+                              lr score
+                            </th>
+                            <th class="wo-tr-thead">
+                              KDA
+                            </th>
+                            <th class="wo-tr-thead">
+                              dmg to champions
+                            </th>
+                            <th class="wo-tr-thead">
+                              wards
+                            </th>
+                            <th class="wo-tr-thead">
+                              CS
+                            </th>
+                            <th class="wo-tr-thead">
+                              items
+                            </th>
+                          </tr>
+                        </thead>
+                        <!-- now onto the actual table content -->
+                        <!-- start with first 5 players -->
+                        {% for i in range(0, 10): %}
+                        {% if D_df.loc[i]['teamId'] == D_df.loc[D_df['summonerName'] == name]['teamId'].values[0]: %}
+
+                        <tbody class="ni">
+                          <tr class="ni-tr">
+                            <td class="ni-cell">
+                              <a class="ni-champ-encaser">
+                                <img class="ni-champ-image" src="{{ D_df.loc[i]['championImage'] }}">
+                                <div class="ni-champ-level">
+                                   {{ D_df.loc[i]['champLevel'] }}
+                                </div>
+                              </a>
+                            </td>
+                            <td class="ni-cell">
+                              <div class="spell">
+                                <img class="ni-spell-image" src="{{ D_df.loc[i]['spell1Image'] }}" alt="">
+                              </div>
+                              <div class="spell">
+                                <img class="ni-spell-image" src="{{ D_df.loc[i]['spell2Image'] }}" alt="">
+                              </div>
+                            </td>
+                            <td class="ni-cell ni-runes">
+                            </td>
+                            <td class="ni-cell ni-summoner-name">
+                              {{ D_df.loc[i]['summonerName'] }}
+                            </td>
+                            <td class="ni-cell ni-rank">
+                              placeholder
+                            </td>
+                            <td class="ni-cell ni-lr-score">
+                              <div class="ni-lr-score-text">
+                                1-10
+                              </div>
+                              <div class="ni-lr-score-place">
+                                1st
+                              </div>
+                            </td>
+                            <td class="ni-cell ni-KDA">
+                              <span class="ni-kill">{{D_df.loc[i]['kills']}}</span>
+                              <span class="ni-deaths">{{D_df.loc[i]['deaths']}}</span>
+                              <span class="ni-assists">{{D_df.loc[i]['assists']}}</span>
+                              <div class="ni-kda">{{D_df.loc[i]['kda']}} , {{D_df.loc[i]['killParticipation']}}%</div>
+                            </td>
+                            <td class="ni-cell ni-damage">
+                              <div class="ni-champ-damage">
+                                {{D_df.loc[i]['totalDamageDealtToChampions']}}
+                              </div>
+                              <div class="ni-champ-damage-progress">
+                                <div class="ni-champ-damage-progress-full" style="width: {{D_df.loc[i]['playerDamageAsFractionOfTeamDamage']}} ;"></div>
+                              </div>
+                            </td>
+                            <td class="ni-cell ni-wards">
+                              <div class="ni-words-bought">
+                                {{D_df.loc[i]['visionWardsBoughtInGame']}}
+                              </div>
+                              <div class="ni-vision-score">
+                                vis score: {{D_df.loc[i]['visionScore']}}
+                              </div>
+                            </td>
+                            <td class="ni-cell ni-cs">
+                              <div class="ni-cs-value">
+                                {{D_df.loc[i]['totalMinionsKilled']}}
+                              </div>
+                              <div class="ni-cs-per-minute-value">
+                                {{D_df.loc[i]['minionsKilledPerMinute']}}/min.
+                              </div>
+                            </td>
+                            <td class="ni-cell ni-items">
+                              <div class="ni-item">
+                                <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage0'] }}" alt="">
+                              </div>
+                              <div class="ni-item">
+                                <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage1'] }}" alt="">
+                              </div>
+                              <div class="ni-item">
+                                <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage2'] }}" alt="">
+                              </div>
+                              <div class="ni-item">
+                                <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage3'] }}" alt="">
+                              </div>
+                              <div class="ni-item">
+                                <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage4'] }}" alt="">
+                              </div>
+                              <div class="ni-item">
+                                <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage5'] }}" alt="">
+                              </div>
+                              <div class="ni-item">
+                                <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage6'] }}" alt="">
+                              </div>
+                            </td>
+
+
+                          </tr>
+                        </tbody>
+
+                        {% endif %}
+                        {% endfor %}
+
+                        </div>
+                      </table>
+
+                      <div class="yi-qi-fen-kai">
+
+                        <!-- team A -->
+                        <div class="yi-qi-fen-kai-team">
+                          <div class="yi-qi-fen-kai-team-objective-score">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/baronicon.png" alt="">
+                            {{D_df['baronKills'][0]}}
+                          </div>
+                          <div class="yi-qi-fen-kai-team-objective-score">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/dragonicon.png" alt="">
+                            {{D_df['dragonKills'][0]}}
+                          </div>
+                          <div class="yi-qi-fen-kai-team-objective-score">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/towericon.png" alt="">
+                            {{D_df['towerKills'][0]}}
+                          </div>
+                        </div>
+
+                        <!-- summary graph -->
+                        <div class="yi-qi-fen-kai-summary-graph">
+                          <div class="yi-qi-fen-kai-summary-graph-total-container">
+                            <div class="graph--text graph--title">
+                              Kills
+                            </div>
+                            <div class="graph--text graph--data graph--text--left">
+                              {{D_df['teamTotalKills'][0]}}
+                            </div>
+                            <div class="graph--container">
+                              <div class="graph--losing--team {{ D_df.loc[D_df['summonerName'] == name]['win'].values[0] }} " style="flex: {{D_df['teamTotalKills'][0]}} "></div>
+                              <div class="winningteam {{ '失败' if D_df.loc[D_df['summonerName'] == name]['win'].values[0] == '胜利' else '胜利' }} " style="flex: {{D_df['teamTotalKills'][9]}}"></div>
+                            </div>
+                            <div class="graph--text graph--data graph--text--right">
+                              {{D_df['teamTotalKills'][9]}}
+                            </div>
+                          </div>
+                          <div class="yi-qi-fen-kai-summary-graph-total-container">
+                            <div class="graph--text graph--title">
+                              Gold
+                            </div>
+                            <div class="graph--text graph--data graph--text--left">
+                              {{D_df['teamTotalGold'][0]}}
+
+                            </div>
+                            <div class="graph--container">
+                              <div class="graph--losing--team {{ D_df.loc[D_df['summonerName'] == name]['win'].values[0] }} " style="flex: {{D_df['teamTotalGold'][0]}} "></div>
+                              <div class="winningteam {{ '失败' if D_df.loc[D_df['summonerName'] == name]['win'].values[0] == '胜利' else '胜利' }}" style="flex: {{D_df['teamTotalGold'][9]}} "></div>
+                            </div>
+                            <div class="graph--text graph--data graph--text--right">
+                              {{D_df['teamTotalGold'][9]}}
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- team B -->
+                        <div class="yi-qi-fen-kai-team">
+                          <div class="yi-qi-fen-kai-team-objective-score">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/baronicon.png" alt="">
+                            {{D_df['baronKills'][9]}}
+                          </div>
+                          <div class="yi-qi-fen-kai-team-objective-score">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/dragonicon.png" alt="">
+                            {{D_df['dragonKills'][9]}}
+                          </div>
+                          <div class="yi-qi-fen-kai-team-objective-score">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/towericon.png" alt="">
+                            {{D_df['towerKills'][9]}}
+                          </div>
+                        </div>
+                      </div>
+
+                        <table class="game_deets_table">
+                          <!-- set up the width of our columns -->
+                          <colgroup>
+                            <col class="yi">
+                            <col class="er">
+                            <col class="san">
+                            <col class="si">
+                            <col class="wu">
+                            <col class="liu">
+                            <col class="qi">
+                            <col class="ba">
+                            <col class="jiu">
+                            <col class="shi">
+                            <col class="shiyi">
+                          </colgroup>
+                          <!-- set up table header row -->
+                          <thead class="wo {{ '失败' if D_df.loc[D_df['summonerName'] == name]['win'].values[0] == '胜利' else '胜利' }} ">
+                            <tr class="wo-tr">
+                              <th class="wo-tr-thead" colspan="4">
+                                <!-- game result of summoner's team-->
+                                {{ D_df.loc[D_df['teamId'] != D_df.loc[D_df['summonerName'] == name]['teamId'].values[0]]['win'].values[0] }}
+                              </th>
+                              <th class="wo-tr-thead">
+                                Tier
+                              </th>
+                              <th class="wo-tr-thead">
+                                lr score
+                              </th>
+                              <th class="wo-tr-thead">
+                                KDA
+                              </th>
+                              <th class="wo-tr-thead">
+                                dmg to champions
+                              </th>
+                              <th class="wo-tr-thead">
+                                wards
+                              </th>
+                              <th class="wo-tr-thead">
+                                CS
+                              </th>
+                              <th class="wo-tr-thead">
+                                items
+                              </th>
+                            </tr>
+                          </thead>
+                          <!-- now onto the actual table content -->
+                          <!-- start with first 5 players -->
+                          {% for i in range(0, 10): %}
+                          {% if D_df.loc[i]['teamId'] != D_df.loc[D_df['summonerName'] == name]['teamId'].values[0]: %}
+                          <tbody class="ni">
+                            <tr class="ni-tr">
+                              <td class="ni-cell">
+                                <a class="ni-champ-encaser">
+                                  <img class="ni-champ-image" src="{{ D_df.loc[i]['championImage'] }}">
+                                  <div class="ni-champ-level">
+                                     {{ D_df.loc[i]['champLevel'] }}
+                                  </div>
+                                </a>
+                              </td>
+                              <td class="ni-cell">
+                                <div class="spell">
+                                  <img class="ni-spell-image" src="{{ D_df.loc[i]['spell1Image'] }}" alt="">
+                                </div>
+                                <div class="spell">
+                                  <img class="ni-spell-image" src="{{ D_df.loc[i]['spell2Image'] }}" alt="">
+                                </div>
+                              </td>
+                              <td class="ni-cell ni-runes">
+                              </td>
+                              <td class="ni-cell ni-summoner-name">
+                                {{ D_df.loc[i]['summonerName'] }}
+                              </td>
+                              <td class="ni-cell ni-rank">
+                                placeholder
+                              </td>
+                              <td class="ni-cell ni-lr-score">
+                                <div class="ni-lr-score-text">
+                                  1-10
+                                </div>
+                                <div class="ni-lr-score-place">
+                                  1st
+                                </div>
+                              </td>
+                              <td class="ni-cell ni-KDA">
+                                <span class="ni-kill">{{D_df.loc[i]['kills']}}</span>
+                                <span class="ni-deaths">{{D_df.loc[i]['deaths']}}</span>
+                                <span class="ni-assists">{{D_df.loc[i]['assists']}}</span>
+                                <div class="ni-kda">{{D_df.loc[i]['kda']}} , {{D_df.loc[i]['killParticipation']}}%</div>
+                              </td>
+                              <td class="ni-cell ni-damage">
+                                <div class="ni-champ-damage">
+                                  {{D_df.loc[i]['totalDamageDealtToChampions']}}
+                                </div>
+                                <div class="ni-champ-damage-progress">
+                                  <div class="ni-champ-damage-progress-full" style="width: {{D_df.loc[i]['playerDamageAsFractionOfTeamDamage']}} "></div>
+                                </div>
+                              </td>
+                              <td class="ni-cell ni-wards">
+                                <div class="ni-words-bought">
+                                  {{D_df.loc[i]['visionWardsBoughtInGame']}}
+                                </div>
+                                <div class="ni-vision-score">
+                                  vis score: {{D_df.loc[i]['visionScore']}}
+                                </div>
+                              </td>
+                              <td class="ni-cell ni-cs">
+                                <div class="ni-cs-value">
+                                  {{D_df.loc[i]['totalMinionsKilled']}}
+                                </div>
+                                <div class="ni-cs-per-minute-value">
+                                  {{D_df.loc[i]['minionsKilledPerMinute']}}/min.
+                                </div>
+                              </td>
+                              <td class="ni-cell ni-items">
+                                <div class="ni-item">
+                                  <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage0'] }}" alt="">
+                                </div>
+                                <div class="ni-item">
+                                  <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage1'] }}" alt="">
+                                </div>
+                                <div class="ni-item">
+                                  <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage2'] }}" alt="">
+                                </div>
+                                <div class="ni-item">
+                                  <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage3'] }}" alt="">
+                                </div>
+                                <div class="ni-item">
+                                  <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage4'] }}" alt="">
+                                </div>
+                                <div class="ni-item">
+                                  <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage5'] }}" alt="">
+                                </div>
+                                <div class="ni-item">
+                                  <img class="ni-item-image" src="{{ D_df.loc[i]['itemImage6'] }}" alt="">
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                          {% endif %}
+                          {% endfor %}
+
+                        </table>
+                    </div>
+                    <!-- end game details -->
+
                   </div>
                 </div>
               </div>
