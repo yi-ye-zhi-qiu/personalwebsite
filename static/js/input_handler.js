@@ -7,7 +7,7 @@ const form = $("#riot-api-form");
     form.submit(() => {
   //some other functions you need to proceed before submit
     var box_opacity = $('.ghgtu').css('opacity', '1');
-    setTimeout(() => {}, 5);
+    setTimeout(() => {}, 0.5);
            return true;
 });
 
@@ -75,37 +75,10 @@ function scrollFunc() {
 }
 
 
-let color_selector = () => {
-
-  var border = document.querySelector('.bird-box'),
-   borders = document.querySelectorAll('.content'),
-   lp = document.querySelector('.lp'),
-   wins = document.querySelector('.wins'),
-   loses = document.querySelector('.loses'),
-   rank = document.querySelector('#persons-rank').textContent.toLowerCase(),
-   color_arr = [['bronze', '#d4a373'],['silver','#d2d2cf'],
-                  ['gold','#ffb646'],['diamond','#9bf6ff'],
-                  ['master','#7371fc'],
-                  ['challenger','linear-gradient(100deg, #ffabab, #ffdaab, #ddffab, #abe4ff, #d9abff)']];
-
-  for(let i=0; i<color_arr.length; i++){
-    if(color_arr[i][0] === rank){
-      border.style.borderBottom = '10px solid'+color_arr[i][1]
-      for( let j=0; j<borders.length; j++){
-        borders[j].style.borderCollapse = 'separate'
-        borders[j].style.borderSpacing = '5px'
-        borders[j].style.paddingBottom = '10px'
-        borders[j].style.borderBottom = '2px solid'+color_arr[i][1]
-      }
-    }
-  }
-}
-color_selector()
-
 function fade_out(element) {
     var op = 1;  // initial opacity
     var timer = setInterval(function () {
-        if (op <= 0.1){
+        if (op >= 0.05){
             clearInterval(timer);
             element.style.display = 'none';
         }
@@ -119,7 +92,7 @@ function fade_out(element) {
 function fade_in(element) {
     var op = 1;  // initial opacity
     var timer = setInterval(function () {
-        if (op >= 1){
+        if (op >= 0.1){
             clearInterval(timer);
             element.style.display = 'block';
         }
@@ -138,3 +111,32 @@ for (let i = 0; i < btn.length; i++) {
       else{fade_out(show_deets[i])}
     });
 }
+
+
+let color_selector = () => {
+
+  var border = document.querySelector('.bird-box'),
+   borders = document.querySelectorAll('.content'),
+   lp = document.querySelector('.lp'),
+   wins = document.querySelector('.wins'),
+   loses = document.querySelector('.loses'),
+   rank = document.querySelector('#persons-rank'),
+   color_arr = [['bronze', '#d4a373'],['silver','#d2d2cf'],
+                  ['gold','#ffb646'],['diamond','#9bf6ff'],
+                  ['master','#7371fc'],
+                  ['challenger','linear-gradient(100deg, #ffabab, #ffdaab, #ddffab, #abe4ff, #d9abff)']];
+  if(rank != ''){
+    for(let i=0; i<color_arr.length; i++){
+      if(color_arr[i][0] === rank.textContent.toLowerCase()){
+        border.style.borderBottom = '10px solid'+color_arr[i][1]
+        for( let j=0; j<borders.length; j++){
+          borders[j].style.borderCollapse = 'separate'
+          borders[j].style.borderSpacing = '5px'
+          borders[j].style.paddingBottom = '10px'
+          borders[j].style.borderBottom = '2px solid'+color_arr[i][1]
+        }
+      }
+    }
+  }
+}
+color_selector()

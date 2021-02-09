@@ -74,7 +74,7 @@ def riot_api_call():
 
     game_ids = []
 
-    for i in range(0,3): #display 10 games
+    for i in range(0,2): #display 10 games
         game_ids.append(matches['matches'][i]['gameId'])
 
     ranked_info = game_info_by_match_id(api_key, name, region,
@@ -84,7 +84,10 @@ def riot_api_call():
         ranked_info = pd.DataFrame({'tier': ['unranked']})
 
     rank_league = ranked_info['tier'].values[0].lower()
-    rank = "/static/images/ranked-emblems/"+rank_league+".png"
+    if rank_league == 'unranked':
+        rank = "/static/images/ranked-emblems/hamster_cam.jpeg"
+    else:
+        rank = "/static/images/ranked-emblems/"+rank_league+".png"
 
     dfs = {}
     for gameid in game_ids:

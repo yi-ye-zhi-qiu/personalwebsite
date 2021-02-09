@@ -159,6 +159,8 @@ class game_info_by_match_id():
         df['playerDamageAsFractionOfTeamDamage'] = df['totalDamageDealtToChampions'] / df['teamTotalDamage']
         df['playerDamageAsFractionOfTeamDamage'] = round(df['playerDamageAsFractionOfTeamDamage'],2)*100
 
+        df.loc[(df.kda == np.inf), 'kda'] = 'BEAST-MODE'
+
         #get time since last played (in days)
 
         now = datetime.now()
