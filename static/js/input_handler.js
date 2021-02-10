@@ -113,6 +113,22 @@ for (let i = 0; i < btn.length; i++) {
 }
 
 
+var stats = document.querySelector('#xgboost_reveal')
+var stats_underneath = document.querySelectorAll('.xgboost_result')
+
+stats.addEventListener('click', function() {
+  stats_underneath.forEach(e => {
+    if(e.classList.contains('is-hidden')){
+      e.style.display = 'block'
+      e.classList.remove('is-hidden')
+    } else {
+      e.style.display = 'none'
+      e.classList.add('is-hidden')
+    }
+  })
+})
+
+
 let color_selector = () => {
 
   var border = document.querySelector('.bird-box'),

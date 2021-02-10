@@ -79,7 +79,7 @@
         </svg>
 
         <span class="button--bubble__container">
-          <a href="#campaign" class="button button--bubble">
+          <a id="xgboost_reveal" class="button button--bubble">
             Boost my stats
           </a>
           <span class="button--bubble__effect-container">
@@ -225,7 +225,7 @@
                   </div>
 
                   <!-- collapsable game details -->
-                  <div class="game_deets">
+                  <div class="game_deets is-hidden">
                     <div class="game_deets_content">
                       <table class="game_deets_table">
                         <!-- set up the width of our columns -->
@@ -591,6 +591,11 @@
                     <!-- end game details -->
 
                   </div>
+
+                  <div class="xgboost_result is-hidden">
+                    <img class="xgboost_image" src="data:image/png;base64,{{shap_plots[a]}}">
+                  </div>
+
                 </div>
               </div>
             </div>

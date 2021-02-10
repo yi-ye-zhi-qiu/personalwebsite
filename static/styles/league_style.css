@@ -744,8 +744,10 @@ p{
   margin-top: -25px;
 }
 .game_deets{
-  display: none;
   background: #e89d99;
+}
+.is-hidden {
+  display: none;
 }
 .game_deets_content{
   background: #ededed;
@@ -1031,4 +1033,9 @@ tr:hover{
   margin-left: 4px;
   flex: 1;
   height: 10px;
+}
+
+.xgboost_image{
+  height: 200px;
+  width: 800px;
 }

@@ -4,6 +4,9 @@ import numpy as np
 import pprint
 from datetime import datetime
 
+
+# Fetching game data
+
 class game_info_by_match_id():
     """
     Returns df of user info from a given match (so far).
@@ -59,6 +62,8 @@ class game_info_by_match_id():
                 m_row['goldEarned'] = row['stats']['goldEarned']
                 m_row['champLevel'] = row['stats']['champLevel']
                 m_row['totalMinionsKilled'] = row['stats']['totalMinionsKilled']
+                m_row['largestKillingSpree'] = row['stats']['largestKillingSpree']
+                m_row['largestMultiKill'] = row['stats']['largestMultiKill']
                 m_row['item0'] = row['stats']['item0']
                 m_row['item1'] = row['stats']['item1']
                 m_row['item2'] = row['stats']['item2']
@@ -76,6 +81,39 @@ class game_info_by_match_id():
                 m_row['ccScore'] = row['stats']['totalTimeCrowdControlDealt']
                 m_row['perkPrimaryStyle'] = row['stats']['perkPrimaryStyle']
                 m_row['perkSubStyle'] = row['stats']['perkSubStyle']
+                m_row['killingSprees'] = row['stats']['killingSprees']
+                m_row['longestTimeSpentLiving'] = row['stats']['longestTimeSpentLiving']
+                m_row['doubleKills'] = row['stats']['doubleKills']
+                m_row['tripleKills'] = row['stats']['tripleKills']
+                m_row['quadraKills'] = row['stats']['quadraKills']
+                m_row['pentaKills'] = row['stats']['pentaKills']
+                m_row['magicDamageDealtToChampions'] = row['stats']['magicDamageDealtToChampions']
+                m_row['physicalDamageDealtToChampions'] = row['stats']['physicalDamageDealtToChampions']
+                m_row['physicalDamageDealtToChampions'] = row['stats']['physicalDamageDealtToChampions']
+                m_row['trueDamageDealtToChampions'] = row['stats']['trueDamageDealtToChampions']
+                m_row['totalHeal'] = row['stats']['totalHeal']
+                m_row['totalUnitsHealed'] = row['stats']['totalUnitsHealed']
+                m_row['damageDealtToObjectives'] = row['stats']['damageDealtToObjectives']
+                m_row['damageDealtToTurrets'] = row['stats']['damageDealtToTurrets']
+                m_row['totalDamageTaken'] = row['stats']['totalDamageTaken']
+                m_row['magicalDamageTaken'] = row['stats']['magicalDamageTaken']
+                m_row['physicalDamageTaken'] = row['stats']['physicalDamageTaken']
+                m_row['trueDamageTaken'] = row['stats']['trueDamageTaken']
+                m_row['turretKills'] = row['stats']['turretKills']
+                m_row['inhibitorKills'] = row['stats']['inhibitorKills']
+                m_row['firstTowerKill'] = row['stats']['firstTowerKill']
+                m_row['firstTowerAssist'] = row['stats']['firstTowerAssist']
+                m_row['totalDamageDealt'] = row['stats']['totalDamageDealt']
+                m_row['physicalDamageDealt'] = row['stats']['physicalDamageDealt']
+                m_row['trueDamageDealt'] = row['stats']['trueDamageDealt']
+                m_row['magicDamageDealt'] = row['stats']['magicDamageDealt']
+                m_row['goldSpent'] = row['stats']['goldSpent']
+                m_row['neutralMinionsKilled'] = row['stats']['neutralMinionsKilled']
+                m_row['neutralMinionsKilledTeamJungle'] = row['stats']['neutralMinionsKilledTeamJungle']
+                m_row['neutralMinionsKilledEnemyJungle'] = row['stats']['neutralMinionsKilledEnemyJungle']
+                m_row['totalTimeCrowdControlDealt'] = row['stats']['totalTimeCrowdControlDealt']
+                m_row['wardsPlaced'] = row['stats']['wardsPlaced']
+                m_row['wardsKilled'] = row['stats']['wardsKilled']
                 n.append(m_row)
             return n
 
@@ -145,8 +183,8 @@ class game_info_by_match_id():
             return df
 
         df = g_c(n)
-
         #add in extra columns
+        df['gameDur'] = m['gameDuration']
         df['gameDuration'] = round((m['gameDuration'] / 60),2)
         df['gameMode'] = m['gameMode']
         df['gameCreation'] = m['gameCreation'] / 1000
@@ -170,7 +208,7 @@ class game_info_by_match_id():
         df['lastGamePlayedWhen'] = (now - last_game_played_when).days
 
         #get first blood, baron kills, etc.
-        def g_t(df, m):
+        def g_t(df):
             def x(y):
                 m_id = m['teams'][0]['teamId']
                 m_team = m['teams'][0]
@@ -187,6 +225,6 @@ class game_info_by_match_id():
 
         df['gameDuration'] = game_dur(df['gameDuration'].values[0])
 
-        df = g_t(df, m)
+        df = g_t(df)
 
         return df
