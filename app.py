@@ -78,16 +78,16 @@ def riot_api_call():
                                           name, region,
                                           gamemode, gameid).match_data()
 
-    # shap_plots = {}
-    # for b in dfs:
-    #     shap_plots[b] = give_shap_plot(dfs[b], name)
+    shap_plots = {}
+    for b in dfs:
+         shap_plots[b] = 'shap plot goes here'#give_shap_plot(dfs[b], name)
 
     return render_template('public/liam.gg.html', rank=rank,
                                                   ranked_info=ranked_info,
                                                   game_ids = game_ids,
                                                   form = form,
                                                   dfs=dfs,
-                                                  # shap_plots = shap_plots,
+                                                  shap_plots = shap_plots,
                                                   name=name)
 
 
