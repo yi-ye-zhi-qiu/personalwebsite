@@ -68,9 +68,9 @@ def riot_api_call():
 
 
     if rank_league == 'unranked':
-        rank = "/var/www/liamisaacs/static/images/ranked-emblems/hamster_cam.jpeg"
+        rank = "static/images/ranked-emblems/hamster_cam.jpeg"
     else:
-        rank = "/var/www/liamisaacs/static/images/ranked-emblems/"+rank_league+".png"
+        rank = "static/images/ranked-emblems/"+rank_league+".png"
 
     dfs = {}
     for gameid in game_ids:
