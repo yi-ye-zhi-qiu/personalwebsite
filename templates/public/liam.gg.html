@@ -430,15 +430,15 @@
                         <!-- team B -->
                         <div class="yi-qi-fen-kai-team">
                           <div class="yi-qi-fen-kai-team-objective-score">
-                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/baronicon.png" alt="">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/var/www/liamisaacs/static/images/baronicon.png" alt="">
                             {{ D_df.loc[D_df['teamId'] != D_df.loc[D_df['summonerName'] == name]['teamId'].values[0]]['baronKills'].values[0] }}
                           </div>
                           <div class="yi-qi-fen-kai-team-objective-score">
-                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/dragonicon.png" alt="">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/var/www/liamisaacs/static/images/dragonicon.png" alt="">
                             {{ D_df.loc[D_df['teamId'] != D_df.loc[D_df['summonerName'] == name]['teamId'].values[0]]['dragonKills'].values[0]  }}
                           </div>
                           <div class="yi-qi-fen-kai-team-objective-score">
-                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/static/images/towericon.png" alt="">
+                            <img class="yi-qi-fen-kai-team-objective-score-image" src="/var/www/liamisaacs/static/images/towericon.png" alt="">
                             {{ D_df.loc[D_df['teamId'] != D_df.loc[D_df['summonerName'] == name]['teamId'].values[0]]['towerKills'].values[0]  }}
 
                           </div>
@@ -592,9 +592,9 @@
 
                   </div>
 
-                  <div class="xgboost_result is-hidden">
+                  <!-- <div class="xgboost_result is-hidden">
                     <img class="xgboost_image" src="data:image/png;base64,{{shap_plots[a]}}">
-                  </div>
+                  </div> -->
 
                 </div>
               </div>
