@@ -6,9 +6,10 @@ from models.liam_gg import game_info_by_match_id
 #from models.liam_gg_ml import give_shap_plot
 import pandas as pd
 # import shap
+# shap.initjs()
+
 import matplotlib
 matplotlib.use('qt5agg')
-shap.initjs()
 
 app = Flask(__name__)
 
