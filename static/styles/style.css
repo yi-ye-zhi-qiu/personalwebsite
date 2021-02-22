@@ -9,7 +9,8 @@ body {
   line-height: 1.4286;
 }
 :root {
-  --circle-color: ;
+  --movie-text-color: #ffffff;
+  --movie-bg-color: #ffffff;
 }
 
 h1, h2 {
@@ -229,8 +230,7 @@ svg{
 /** LIAMOMETER **/
 .gallery {
   padding-top: 100px;
-  margin-top: 200px;
-  background-color: rgba(255, 204, 34, 0.3);
+  background-color: #ffffff;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -253,14 +253,30 @@ svg{
 }
 .movie-img:hover {
    transform: translate(5%, -2%);
-   box-shadow:-1px 1px  #8bc451, -2px 2px  #8bc451, -3px 3px  #8bc451, -4px 4px  #8bc451, -5px 5px  #8bc451, -6px 6px  #8bc451, -7px 7px  #8bc451, -8px 8px  #8bc451;
+   box-shadow:-1px 1px  var(--movie-bg-color), -2px 2px  var(--movie-bg-color), -3px 3px  var(--movie-bg-color), -4px 4px  var(--movie-bg-color), -5px 5px  var(--movie-bg-color), -6px 6px  var(--movie-bg-color), -7px 7px  var(--movie-bg-color), -8px 8px  var(--movie-bg-color);
+}
+.movie-title{
+  font-weight: 500;
+  letter-spacing: 1.34;
+}
+.movie-revenue{
+  font-weight: 300;
+}
+/** Liamometer background **/
+.movie-revenue:nth-child(3){
+
+}
+
+/** IMDB background **/
+.movie-revenue:nth-child(4){
+  
 }
 .movie-title, .movie-revenue{
-  background-color: rgba(255, 204, 34, 0.4);
+  border-radius: 4px;
   width: 9rem;
   margin: 20px;
   position: relative;
-  word-break: break-all;
+  word-break: keep-all;
   white-space: normal;
   text-align: center;
   padding-left: 2px;

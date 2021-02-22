@@ -8,16 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
   </head>
   <body>
-    <nav id="navbar" class="navbar fixed">
-        <ul>
-          <li><a data-mlr-text class="navbar item" href="{{ url_for('show_index') }}">me</a></li>
-          <li><a data-mlr-text class="navbar item" href="{{ url_for('show_portfolio') }}">portfolio</a></li>
-          <li><a data-mlr-text class="navbar item" href="#">contact</a></li>
-        </ul>
-        <select class="select" id="lang-chooser"><span class="focus"></span></select>
-        <a class="report" href="static/stat_reports/Linear Regression of IMDB ratings.pdf" download="Linear Regression of IMDB Ratings">download report as pdf</a>
-        <div class="line"></div>
-    </nav>
 
     <!-- <div id="scroller" class="mb-3">
       <template id="post_template"> -->
@@ -28,12 +18,12 @@
                 <img class=" movie-img" src="{{ liams_favorite_movie_image }}"></img>
                 <p class="movie-title liams-favorite">Liam's favorite movie!! {{liams_favorite[0]}} scored @ {{max}} on the liamometer~~</p>
             </div>
-          {%for i in range(1, 10) %}
+          {%for i in range(1, 500) %}
           <!-- <div class="img-banner animated fadeIn shadow-sm"> -->
           <div class="img-banner">
             <img class="movie-img" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>
             <p class="movie-title">{{html_data.iloc[i]['mojo_title']}}</p>
-            <p class="movie-revenue">Liam-o-meter: {{html_data.iloc[i]['pred']}}</p>
+            <span class="value movie-revenue">Liam-o-meter: {{html_data.iloc[i]['pred']}}</span>
             <p class="movie-revenue">IMDB: {{html_data.iloc[i]['imdbscore']}}</p>
           </div>
           {% endfor %}
@@ -47,8 +37,8 @@
     </div> -->
 
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-  <script src="{{url_for('static', filename='js/infinite_scroll.js')}}"></script>
-  <script src="{{url_for('static', filename='js/js.js')}}"></script>
+  <script src="{{url_for('static', filename='js/colorpicker.js')}}"></script>
 
 </html>
