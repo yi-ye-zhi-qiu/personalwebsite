@@ -19,28 +19,16 @@
         <div class="line"></div>
     </nav>
 
-
-    <script>
-
-      //var statistics = '<img src ="static/images/heatmap_1.png"/>'
-
-      var content_changer = document.getElementById("change_content")
-      var original = "stats_report"
-
-    </script>
     <!-- <div id="scroller" class="mb-3">
       <template id="post_template"> -->
 
         {% block content %}
-        <div class="explanation">
-          
-        </div>
         <div class="gallery">
             <div class="img-banner">
                 <img class=" movie-img" src="{{ liams_favorite_movie_image }}"></img>
                 <p class="movie-title liams-favorite">Liam's favorite movie!! {{liams_favorite[0]}} scored @ {{max}} on the liamometer~~</p>
             </div>
-          {%for i in range(1, 1000) %}
+          {%for i in range(1, 10) %}
           <!-- <div class="img-banner animated fadeIn shadow-sm"> -->
           <div class="img-banner">
             <img class="movie-img" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>
@@ -59,6 +47,8 @@
     </div> -->
 
   </body>
+
   <script src="{{url_for('static', filename='js/infinite_scroll.js')}}"></script>
   <script src="{{url_for('static', filename='js/js.js')}}"></script>
+
 </html>

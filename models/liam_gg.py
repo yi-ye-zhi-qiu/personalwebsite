@@ -109,8 +109,14 @@ class game_info_by_match_id():
                 m_row['magicDamageDealt'] = row['stats']['magicDamageDealt']
                 m_row['goldSpent'] = row['stats']['goldSpent']
                 m_row['neutralMinionsKilled'] = row['stats']['neutralMinionsKilled']
-                # m_row['neutralMinionsKilledTeamJungle'] = row['stats']['neutralMinionsKilledTeamJungle']
-                # m_row['neutralMinionsKilledEnemyJungle'] = row['stats']['neutralMinionsKilledEnemyJungle']
+                try:
+                    m_row['neutralMinionsKilledTeamJungle'] = row['stats']['neutralMinionsKilledTeamJungle']
+                except:
+                    m_row['neutralMinionsKilledTeamJungle'] = ''
+                try:
+                    m_row['neutralMinionsKilledEnemyJungle'] = row['stats']['neutralMinionsKilledEnemyJungle']
+                except:
+                    m_row['neutralMinionsKilledEnemyJungle'] = ''
                 m_row['totalTimeCrowdControlDealt'] = row['stats']['totalTimeCrowdControlDealt']
                 m_row['wardsPlaced'] = row['stats']['wardsPlaced']
                 m_row['wardsKilled'] = row['stats']['wardsKilled']
