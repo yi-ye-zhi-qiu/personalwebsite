@@ -7,8 +7,6 @@
     <title>new_website</title>
   </head>
   <body>
-
-
     <div class="top-part">
         <h1>
           <p>liam （叶秋）</p>
@@ -17,33 +15,21 @@
           <p>hacker;心儿不由自主,<br>poet,DataScientist,<br>pianist,lazy-loader</p>
         </h1>
         <img class="logo" src="{{ url_for('static',filename='images/open_bg.jpeg') }}" alt="logo-image" />
-        <span class="button--bubble__container">
+
           <a class="button button--bubble" href="#about">
             我//me <!--& all that i_am
               (& all of my contradictions)-->
           </a>
-          <span class="button--bubble__effect-container">
-            <span class="button effect-button"></span>
-          </span>
-        </span>
-        <span class="button--bubble__container">
+
           <a class="button button--bubble" href="#portfolio">
             _portfolio_
           </a>
-          <span class="button--bubble__effect-container">
-            <span class="button effect-button"></span>
-          </span>
-        </span>
-        <span class="button--bubble__container">
+
           <a class="button button--bubble" href="#contact">
             get in touch
           </a>
-          <span class="button--bubble__effect-container">
-            <span class="button effect-button"></span>
-          </span>
-        </span>
-    </div>
 
+    </div>
 
     <div class="line_Horizontal"></div>
 
@@ -53,55 +39,63 @@
           <span>portfolio</span>
         </div>
       </div>
-
-      <div class="PortfolioText">
-        <div class="DateDone">
-          2月10号2021年
-        </div>
-        <div class="ProjectTitle">
-          <a href="{{ url_for('show_league') }}">lieum.gg</a>
-        </div>
-        <div class="ProjectDescription">
-          tell you why you win, and what you can do to win
-        </div>
-        <div class="ProjectTags">
-          <p>XGBoost</p>
-          <p>RandomForest</p>
-          <p>Logistic Regression</p>
-          <p>SHAP</p>
-          <p>Riot APIs</p>
-          <p>Flask</p>
-          <p>jinja2</p>
-        </div>
-        <div class="ProjectMedia">
-          <a href="https://github.com/yi-ye-zhi-qiu/metis-project2"><i class="fa fa-github" aria-hidden="true"></i></a>
-          <a><i class="fa fa-medium" aria-hidden="true"></i></a>
-        </div>
-      </div>
-      <div class="PortfolioText">
-        <div class="DateDone">
-          1月22号2021年
-        </div>
-        <div class="ProjectTitle">
-          <a href="{{ url_for('show_mango') }}">liamometer</a>
-        </div>
-        <div class="ProjectDescription">
-          rates movies based off IMDB ratings (with my own bias)
-        </div>
-        <div class="ProjectTags">
-          <p>LASSO CV</p>
-          <p>Ridge CV</p>
-          <p>Linear regression</p>
-          <p>Scrapy</p>
-          <p>Flask</p>
-          <p>jinja2</p>
-        </div>
-        <div class="ProjectMedia">
-          <a href="https://github.com/yi-ye-zhi-qiu/metis-project3"><i class="fa fa-github" aria-hidden="true"></i></a>
-          <a><i class="fa fa-medium" aria-hidden="true"></i></a>
+      <div class="PortfolioImageTextContainer">
+        <div class="PortfolioHover">
+          <img class="ProjectImageTeemo" src="{{ url_for('static',filename='images/teemo.jpeg') }}" alt="">
+          <div class="PortfolioText">
+            <div class="DateDone">
+              2月10号2021年
+            </div>
+            <div class="ProjectTitle">
+              <a href="{{ url_for('show_league') }}">lieum.gg</a>
+            </div>
+            <div class="ProjectDescription">
+              tell you why you win League of Legends, and what you can do to win
+            </div>
+            <div class="ProjectTags">
+              <p>XGBoost</p>
+              <p>RandomForest</p>
+              <p>Logistic Regression</p>
+              <p>SHAP</p>
+              <p>Riot APIs</p>
+              <p>Flask</p>
+              <p>jinja2</p>
+            </div>
+            <div class="ProjectMedia">
+              <a href="https://github.com/yi-ye-zhi-qiu/metis-project3"><i class="fa fa-github" aria-hidden="true"></i></a>
+              <a><i class="fa fa-medium" aria-hidden="true"></i></a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="PortfolioImageTextContainer">
+        <div class="PortfolioHover">
+          <img class="ProjectImageTeemo" src="{{ url_for('static',filename='images/coco.jpeg') }}" alt="">
+              <div class="PortfolioText">
+                <div class="DateDone">
+                  1月22号2021年
+                </div>
+                <div class="ProjectTitle">
+                  <a href="{{ url_for('show_mango') }}">liamometer</a>
+                </div>
+                <div class="ProjectDescription">
+                  rates movies based off IMDB ratings (with my own bias)
+                </div>
+                <div class="ProjectTags">
+                  <p>LASSO CV</p>
+                  <p>Ridge CV</p>
+                  <p>Linear regression</p>
+                  <p>Scrapy</p>
+                  <p>Flask</p>
+                  <p>jinja2</p>
+                </div>
+                <div class="ProjectMedia">
+                  <a href="https://github.com/yi-ye-zhi-qiu/metis-project2"><i class="fa fa-github" aria-hidden="true"></i></a>
+                  <a><i class="fa fa-medium" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
     <div class="line_Horizontal"></div>
 
     <div class="portfolio">
