@@ -235,9 +235,10 @@ svg{
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  padding-left: 10em;
+  padding-right: 10em;
   display: grid;
-  grid-template-columns: repeat(5, 0.5fr);
+  grid-template-columns: repeat(5, 0.2fr);
   grid-auto-rows: 500px;
 }
 .movie-img{
@@ -250,6 +251,7 @@ svg{
   max-width: 35vh;
   display: inline-block;
   position: relative;
+
 }
 .movie-img:hover {
    transform: translate(5%, -2%);
@@ -269,7 +271,7 @@ svg{
 
 /** IMDB background **/
 .movie-revenue:nth-child(4){
-  
+
 }
 .movie-title, .movie-revenue{
   border-radius: 4px;
@@ -278,13 +280,41 @@ svg{
   position: relative;
   word-break: keep-all;
   white-space: normal;
-  text-align: center;
+  text-align: left;
   padding-left: 2px;
   padding-right: 2px;
-  font-size: 0.6em;
+  font-size: 0.5em;
 }
 .liams-favorite{
   padding-left: 0px !important;
   padding-right: 0 !important;
   background-color: white !important;
+}
+
+.back-{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding-left: 10em;
+  padding-right: 10em;
+}
+
+.back-button {
+  text-decoration: none !important;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+.back-button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.back-button {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.ProjectHeader{
+  font-family: 'Roboto Mono', monospace;
 }
