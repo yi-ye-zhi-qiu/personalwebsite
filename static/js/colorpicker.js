@@ -26,7 +26,7 @@ function getColor() {
 //run function
 getColor()
 
-//For saturation of red->green for Liamometer background-colors:
+let scores = document.querySelectorAll('.value')
 
 var hsv2rgb = function(h, s, v) {
   var rgb, i, data = [];
@@ -62,27 +62,30 @@ var hsv2rgb = function(h, s, v) {
   }).join('');
 };
 
+scores.forEach(score => {
 
-$(document).on({
-    change: function(e) {
+  var val = score.innerHTML;
 
-        var self = this,
-            span = $(self).parent("span"),
-            val = parseInt(self.value);
-        if (val > 100) {
-            val = 100;
-        }
-        else if (val < 0) {
-            val = 0;
-        }
-        $(".value", span).text(val);
-
-        var h= Math.floor((100 - val) * 120 / 100);
-        var s = Math.abs(val - 50)/50;
-        var v = 1;
-
-        span.css({
-            backgroundColor: hsv2rgb(h, s, 1)
-        });
-    }
-}, "input[type='range']");
+  if (val >= 8.0 ) {
+    score.style.backgroundColor = '#68ff68'
+  }
+  if (val <= 8.0  && val > 7.9) {
+    score.style.backgroundColor = '#56c783'
+  }
+  if (val <= 7.9  && val > 7.6) {
+    score.style.backgroundColor = '#68cd91'
+  }
+  if (val <= 7.6  && val > 7.3) {
+    score.style.backgroundColor = '#95f2aa'
+  }
+  if (val <= 7.3  && val > 7.0) {
+    score.style.backgroundColor = '#ff8989'
+  }
+  if (val <= 7.0  && val > 6.8) {
+    score.style.backgroundColor = '#f66'
+  }
+  if (val <= 6.8  && val > 6.6) {
+    score.style.backgroundColor = '#ff1e1e'
+  }
+  
+})

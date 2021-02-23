@@ -3,6 +3,8 @@
     <meta charset="utf-8">
     <title>Liam-o-meter 🥭</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
     <!-- <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='js/infinite_scroll.js') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
@@ -12,18 +14,29 @@
     <!-- <div id="scroller" class="mb-3">
       <template id="post_template"> -->
 
+        <div class="back-">
+          <div class="ProjectHeader">
+            liamometer
+            <div class="ProjectDescriptionSamePage">
+              <p>check out what I think of movies I've never seen</p>
+              <p>if you're more about the math, <a>click here to download a report</a></p>
+            </div>
+          </div>
+          <a class = "back-button" href="{{ url_for('show_index') }}">&#8249;</a>
+        </div>
+
         {% block content %}
         <div class="gallery">
             <div class="img-banner">
                 <img class=" movie-img" src="{{ liams_favorite_movie_image }}"></img>
                 <p class="movie-title liams-favorite">Liam's favorite movie!! {{liams_favorite[0]}} scored @ {{max}} on the liamometer~~</p>
             </div>
-          {%for i in range(1, 500) %}
+          {%for i in range(1, 10) %}
           <!-- <div class="img-banner animated fadeIn shadow-sm"> -->
           <div class="img-banner">
             <img class="movie-img" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>
             <p class="movie-title">{{html_data.iloc[i]['mojo_title']}}</p>
-            <span class="value movie-revenue">Liam-o-meter: {{html_data.iloc[i]['pred']}}</span>
+            <span class="movie-revenue">Liam-o-meter: <span class="value">{{html_data.iloc[i]['pred']}}</span></span>
             <p class="movie-revenue">IMDB: {{html_data.iloc[i]['imdbscore']}}</p>
           </div>
           {% endfor %}
