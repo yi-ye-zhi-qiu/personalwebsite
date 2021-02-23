@@ -118,8 +118,14 @@ class game_info_by_match_id():
                 except:
                     m_row['neutralMinionsKilledEnemyJungle'] = ''
                 m_row['totalTimeCrowdControlDealt'] = row['stats']['totalTimeCrowdControlDealt']
-                m_row['wardsPlaced'] = row['stats']['wardsPlaced']
-                m_row['wardsKilled'] = row['stats']['wardsKilled']
+                try:
+                    m_row['wardsPlaced'] = row['stats']['wardsPlaced']
+                except:
+                    m_row['wardsPlaced'] = ''
+                try:
+                    m_row['wardsKilled'] = row['stats']['wardsKilled']
+                except:
+                    m_row['wardsKilled'] = ''
                 n.append(m_row)
             return n
 
