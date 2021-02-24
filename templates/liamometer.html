@@ -19,10 +19,12 @@
             liamometer
             <div class="ProjectDescriptionSamePage">
               <p>check out what I think of movies I've never seen</p>
-              <p>if you're more about the math, <a>click here to download a report</a></p>
+              <p>(my opinion is based on internationally-liked animation films)</p>
+              <p class="download">if you're more about the math, <a href="{{ url_for('static', filename='stat_reports/Linear Regression of IMDB ratings.pdf')}}" download>click here to download a report</a></p>
             </div>
+            <a class = "back-button" href="{{ url_for('show_index') }}">&#8249;</a>
+
           </div>
-          <a class = "back-button" href="{{ url_for('show_index') }}">&#8249;</a>
         </div>
 
         {% block content %}
@@ -31,7 +33,7 @@
                 <img class=" movie-img" src="{{ liams_favorite_movie_image }}"></img>
                 <p class="movie-title liams-favorite">Liam's favorite movie!! {{liams_favorite[0]}} scored @ {{max}} on the liamometer~~</p>
             </div>
-          {%for i in range(1, 10) %}
+          {%for i in range(1, 500) %}
           <!-- <div class="img-banner animated fadeIn shadow-sm"> -->
           <div class="img-banner">
             <img class="movie-img" src="{{ html_data.iloc[i]['tomato_image'] }}"></img>

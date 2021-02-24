@@ -168,6 +168,23 @@ svg{
   position: relative;
   color: #121314;
 }
+.download a{
+  background-color: white;
+}
+.download a:after{
+  content: '';
+  position:absolute;
+  z-index: -1;
+  top: 80%;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: 0;
+  transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+  background-color: #A16AE8;
+}
+.download a:hover:after{
+  top: 0%;
+}
 .ProjectTitle a:after {
     content: '';
     position: absolute;
@@ -227,7 +244,7 @@ svg{
 }
 
 
-/** LIAMOMETER **/
+/**          LIAMOMETER           **/
 .gallery {
   padding-top: 100px;
   background-color: #ffffff;
@@ -293,7 +310,8 @@ svg{
 
 .back-{
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
+  flex-flow: column;
   align-items: flex-start;
   padding-left: 10em;
   padding-right: 10em;
@@ -316,5 +334,13 @@ svg{
 }
 
 .ProjectHeader{
+  padding: 2em;
   font-family: 'Roboto Mono', monospace;
+  color: white;
+  background: black;
+  padding-bottom: 10px;
+}
+.ProjectDescriptionSamePage{
+  font-size: 14px;
+  font-weight: 550;
 }
