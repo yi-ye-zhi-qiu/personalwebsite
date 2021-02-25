@@ -113,19 +113,17 @@ svg{
 }
 
 /** PORTFOLIO **/
-.portfolio_header, .AboutHeader{
+.SectionHeader{
   margin-top: 100px;
   text-transform: uppercase;
   color: #121314;
   letter-spacing: 8px;
   text-align: center;
-  position: absolute;
-  margin-left: -100px;
-  width: 600px;
+
 }
 
 @media screen and (max-width: 1354px) {
-  .portfolio_header, .AboutHeader{
+  .SectionHeader{
     margin-top: 0px;
     margin-left: -180px;
   }
@@ -144,7 +142,7 @@ svg{
   opacity: 0.9;
   padding-left: 2em;
   padding-bottom: 2em;
-  margin-top: 60px;
+  margin-top: 65px;
 }
 .PortfolioHover{
   display: flex;
@@ -208,8 +206,10 @@ svg{
 .ProjectDescription{
   font-size: 16px;
   margin-top: 8px;
+  height: 40px;
+  padding-right: 52px;
 }
-.ProjectImageTeemo{
+.ProjectImage{
   flex: 300px;
   height: 175px;
   position: relative;
@@ -217,7 +217,7 @@ svg{
   margin-top: 65px;
   margin-left: 100px;
 }
-.ProjectImageTeemo:first-child{
+.ProjectImage:first-child{
   flex: auto !important;
 }
 .ProjectTags{
