@@ -96,5 +96,17 @@ def riot_api_call():
                                                   shap_plots = shap_plots,
                                                   name=name)
 
+#Liamometer page
+@app.route('/liamometer')	#Home/landing page
+def show_liamometer():
+    """
+    Performs linear regression on scraped databases (IMDB, BoxOfficeMojo).
+    Returns 500 rows, just because I do not want to overload the page (currently working on lazy-load in javascript, or loading as you scroll.)
+    """
+    max, liams_favorite, liams_favorite_movie_image, html_data = get_movie_data()
+
+    return render_template('liamometer.html', max=max, liams_favorite_movie_image = liams_favorite_movie_image,
+                            liams_favorite=liams_favorite, html_data = html_data)
+
 if __name__ == '__main__':
     app.run()
