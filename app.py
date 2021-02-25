@@ -33,6 +33,10 @@ def show_index():
 def show_portfolio():
     return render_template('portfolio.html')
 
+@app.route('/petrarch')
+def show_petrarch():
+    return render_template('petrarch.html')
+
 @app.route('/league')
 def show_league():
     return render_template('league.html')

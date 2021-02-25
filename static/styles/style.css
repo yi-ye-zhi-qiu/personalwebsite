@@ -123,6 +123,14 @@ svg{
   margin-left: -100px;
   width: 600px;
 }
+
+@media screen and (max-width: 1354px) {
+  .portfolio_header, .AboutHeader{
+    margin-top: 0px;
+    margin-left: -180px;
+  }
+}
+
 .PortfolioImageTextContainer{
   display: flex;
   flex-direction: row;
@@ -134,11 +142,9 @@ svg{
   display: block;
   background-color: white;
   opacity: 0.9;
-  padding: 2em;
+  padding-left: 2em;
+  padding-bottom: 2em;
   margin-top: 60px;
-}
-.PortfolioText:nth-child(1){
-  background-color: white;
 }
 .PortfolioHover{
   display: flex;
@@ -204,14 +210,16 @@ svg{
   margin-top: 8px;
 }
 .ProjectImageTeemo{
-  width: 300px;
+  flex: 300px;
   height: 175px;
   position: relative;
   display: inline-block;
-  margin-top: 120px;
+  margin-top: 65px;
   margin-left: 100px;
 }
-
+.ProjectImageTeemo:first-child{
+  flex: auto !important;
+}
 .ProjectTags{
   display: inline-block;
   padding: none;
@@ -343,4 +351,40 @@ svg{
 .ProjectDescriptionSamePage{
   font-size: 14px;
   font-weight: 550;
+}
+
+/** PETRARCH **/
+.PetrarchHeaders{
+  display: flex;
+  flex-direction: column;
+}
+.PetrarchH1, .PetrarchH2, article{
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: normal;
+  line-height: normal;
+  word-spacing: 1.1;
+  font-weight: 300;
+  padding: 0 50vh 0 10vh;
+  text-align: left;
+}
+article{
+  font-size: 14px;
+  font-weight: bold;
+}
+article p{
+  word-wrap: break-word;
+}
+.PetrarchH1 p{
+  width: 600px;
+  color: white;
+  background-color: black;
+  font-size: 24px;
+  font-weight: normal;
+}
+.PetrarchH2 p{
+  width: 600px;
+  color: white;
+  background-color: black;
+  font-size: 18px;
+  font-weight: normal;
 }
