@@ -7,7 +7,7 @@
     <title>new_website</title>
   </head>
   <body>
-    <div class="top-part">
+    <div class="TopSection">
         <h1>
           <p>liam （叶秋）</p>
         </h1>
@@ -15,20 +15,18 @@
           <p>hacker;心儿不由自主,<br>poet,DataScientist,<br>pianist,lazy-loader</p>
         </h1>
         <img class="logo" src="{{ url_for('static',filename='images/open_bg.jpeg') }}" alt="logo-image" />
-
-          <a class="button button--bubble" href="#about">
+        <div class="ButtonContainer">
+          <a class="Button" href="#about">
             我//me <!--& all that i_am
               (& all of my contradictions)-->
           </a>
-
-          <a class="button button--bubble" href="#portfolio">
-            _portfolio_
+          <a class="Button" href="#portfolio">
+            portfolio
           </a>
-
-          <a class="button button--bubble" href="#contact">
+          <a class="Button" href="#contact">
             get in touch
           </a>
-
+        </div>
     </div>
 
     <div class="line_Horizontal"></div>
@@ -127,11 +125,10 @@
     <div class="line_Horizontal"></div>
 
     <div class="SectionTitle">
-      <div class="SectionHeader">
         <div class="SectionHeader">
           <span>about me</span>
-        </div>
       </div>
+    </div>
 
       <div class="About">
         <div class="IntroduceMe">

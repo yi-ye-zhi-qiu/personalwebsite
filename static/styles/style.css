@@ -9,10 +9,10 @@ body {
   line-height: 1.4286;
 }
 :root {
+  /** these variables are manipulated by javascript **/
   --movie-text-color: #ffffff;
   --movie-bg-color: #ffffff;
 }
-
 h1, h2 {
   font-weight: normal;
   text-align: center;
@@ -20,18 +20,18 @@ h1, h2 {
   letter-spacing: 8px;
 }
 h1:nth-child(2){
-
   color: #121314;
   font-size: 14px;
   font-weight: 200;
 }
 
-.top-part{
+.TopSection{
   background: var(--placeholder-color);
   height: 500px;
   -webkit-animation: fadeTop 0.5s linear;
   animation: fadeTop 0.5s linear;
 }
+
 @keyframes fadeTop {
   0% {
     opacity: 0;
@@ -48,18 +48,14 @@ h1:nth-child(2){
   margin-left: -150px;
 }
 
-svg{
-  left: 50%;
-  margin-left: -150px;
-  position: absolute;
+/** BUTTON **/
+.ButtonContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 250px;
 }
 
-/** BUTTON **/
-* {
-  box-sizing: border-box;
-}
-/* artist of this button: Adrien Grsmto*/
-.button {
+.Button {
   border-radius: 4px;
   -webkit-font-smoothing: antialiased;
   border: none;
@@ -74,30 +70,18 @@ svg{
   transition: all 0.1s ease-out;
   color: #121314;
 }
-.button:hover {
+.Button:hover {
   cursor: pointer;
   text-decoration: underline;
-  background-color: #90feb5;
+  text-decoration-color: white;
+  color: white;
+  background-color: #f3f3f3;
   color: #121314;
 }
-.button:active {
+.Button:active {
   transform: scale(0.95);
 }
-.button--bubble {
-  position: relative;
-  z-index: 2;
-  background: none;
-}
-.button--bubble:hover {
-  background: none;
-}
-.button--bubble:hover + .button--bubble__effect-container .circle {
-  background: #121314;
-}
-.button--bubble:hover + .button--bubble__effect-container .button {
-  background: #f5f4f4;
-}
-.button--bubble:active + .button--bubble__effect-container {
+.Button:active{
   transform: scale(0.95);
 }
 
@@ -112,14 +96,14 @@ svg{
   margin-top: 20px;
 }
 
-/** PORTFOLIO **/
+/** PORTFOLIO  SECTION **/
+
 .SectionHeader{
-  margin-top: 100px;
+  margin-top: 75px;
+  margin-bottom: 50px;
   text-transform: uppercase;
-  color: #121314;
   letter-spacing: 8px;
   text-align: center;
-
 }
 
 @media screen and (max-width: 1354px) {
@@ -237,7 +221,11 @@ svg{
   color: white;
 }
 .ProjectMedia{
+  color: #121314;
   word-spacing: 20px;
+}
+.ProjectMedia a{
+  color: #121314;
 }
 .ProjectMedia a:hover{
   cursor: pointer;
