@@ -376,3 +376,45 @@ article p{
   font-size: 18px;
   font-weight: normal;
 }
+.MakingAPoint{
+  font-weight: 600;
+  font-style: italic;
+}
+.Highlight {
+  color: rgba(161,106,232, 1);
+  background: rgba(161,106,232, 0.4);
+  border-radius: 1px;
+}
+.Highlight:hover{
+  background: rgba(161,106,232, 1);
+  color: white;
+}
+.PetrarchSonnet{
+  white-space: pre;
+}
+.PoemUnderlineAccent:after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  width: 0;
+  bottom: -5px;
+  background: #000;
+  height: 4px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+}
+.PoemUnderlineAccent{
+  display: inline;
+  position: relative;
+  overflow: hidden;
+}
+.PoemUnderlineAccent:hover:after,
+.PoemUnderlineAccent:focus:after,
+.PoemUnderlineAccent:active:after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
