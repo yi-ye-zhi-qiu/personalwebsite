@@ -1,17 +1,18 @@
 const first_accent = document.querySelectorAll('.first_accent'),
       second_accent = document.querySelectorAll('.second_accent'),
-      third_accent = document.querySelectorAll('.third_accent');
+      third_accent = document.querySelectorAll('.third_accent'),
+      forth_accent = document.querySelectorAll('.fourth_accent');
 
 accent(first_accent);
 accent(second_accent);
 accent(third_accent);
+accent(forth_accent);
 
 function accent(q){
 
   q.forEach(el => el.addEventListener('mouseover', function(){
     for (let a=0; a<q.length; a++) {
       this_a = q[a]
-      console.log(this_a);
       this_a.classList.add('hovered');
       //this_a.classList.add('hovered');
     }
@@ -39,7 +40,6 @@ function accent(q){
       for (let a=0; a<q.length; a++) {
         this_a = q[a]
         this_a.classList.remove('hovered');
-        //this_a.classList.add('hovered');
       }
 
       var highlight_reveals = document.querySelector('.'+el.classList[0]+'_trigger')

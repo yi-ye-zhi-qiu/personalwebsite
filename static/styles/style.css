@@ -377,6 +377,7 @@ article p{
   font-weight: normal;
 }
 .MakingAPoint{
+  font-size: 20px;
   font-weight: 600;
   font-style: italic;
 }
@@ -419,18 +420,17 @@ article p{
   background-color: rgba(255,217,211, 0.8);
   top: 0%;
 }
-.first_accent_trigger{
+.first_accent_trigger, .second_accent_trigger, .third_accent_trigger, .fourth_accent_trigger{
   opacity: 0.5;
   background-color: #E7ECEF;
   color: #121314;
 }
-.second_accent_trigger{
-  opacity: 0.5;
-  background-color: #E7ECEF;
-  color: #121314;
+.TensorflowEmbeddingImage1{
+  height: 250px;
+  width: 500px;
+  margin-left: 10px;
 }
-.third_accent_trigger{
-  opacity: 0.5;
-  background-color: #E7ECEF;
-  color: #121314;
+.TensorflowEmbeddingImage2{
+  margin-left: 10px;
+  height: 300px;
 }

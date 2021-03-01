@@ -12,7 +12,9 @@
 
   <div class="PetrarchHeaders">
     <h1 class="PetrarchH1"><p>The Language of Petrarch’s obsession</p></h1>
-    <h2 class="PetrarchH2"><p>Seeing if NLP can sniff out a poet’s undying misogyny, and the role of NLP in literary history</p></h2>
+    <a class = "back-button" href="{{ url_for('show_index') }}">&#8249;</a>
+
+    <h2 class="PetrarchH2"><p>Seeing if NLP can help point out a poet’s undying misogyny, and potential applications of NLP in literary history</p></h2>
   </div>
   <article class="PetrarchArticle">
 
@@ -20,7 +22,7 @@
 
     <p>One of my favorite classes that I took in college was called “Forms of Presence in Renaissance Lyric”. On sunny Spring afternoons, we talked about 16th-century poems. While we can busy ourselves talking metaphor and metonymy as they relate to ideas about truth, apostrophe and verb tense as they relate to time and space, in that classroom — and to anyone reading these poems — it is impossible to ignore that most if not all of these poet’s are fervent misogynists.</p>
 
-    <p>Take Sir Thomas Wyatt, for example, who in “whoso list to hunt” summarizes love as a simple power-imbalance where the man hunts the woman like a hunter chases a fleeing animal (commended by the Guardian in 2009 as an endearing love poem [1]) — and as a bonus this is a direct precursor to Animals by Maroon V, where Adam Lavene preys on women: “hunt you down, eat you alive”. Or take Geoffrey Chaucer, who writes of the “damsel in distress” in The Clerk’s Tale (1387-1400), where the woman is a defenseless victim in need of saving, which Walt Disney must have just memorized. What’s disturbing is the sheer volume of the misogynist fantasy, with Sir Phillip Sydney’s Astrophel and Stella (1580s) being almost 100 sonnets about unrequited love and desire. But nothing compares to the man who in the eyes of these poets “started it” — Petrarch.</p>
+    <p>Take Sir Thomas Wyatt, for example, who in “whoso list to hunt” summarizes love as a simple power-imbalance where the man hunts the woman like a hunter chases a fleeing animal (commended by the Guardian in 2009 as an endearing love poem [1]) — and as a bonus this is a direct precursor to Animals by Maroon V, where Adam Levine preys on women: “hunt you down, eat you alive”. Or take Geoffrey Chaucer, who writes of the “damsel in distress” in The Clerk’s Tale (1387-1400), where the woman is a defenseless victim in need of saving, which Walt Disney must have just memorized. What’s disturbing is the sheer volume of the misogynist fantasy, with Sir Phillip Sydney’s Astrophel and Stella (1580s) being almost 100 sonnets about unrequited love and desire. But nothing compares to the man who in the eyes of these poets “started it” — Petrarch.</p>
 
     <p>Petrarch spent his life writing 10,983 lines of poems in Italian (called the Canzoniere) about a woman who rejected him and friend-zoned him. His poems are not innocent love poems. The woman suffered as a result of his actions. Her husband and society blamed her for Petrarch’s, a man of status’s, feelings. The woman, not Petrarch, was held responsible for playing hard to get and for an infidelity which never occurred. Petrarch is credited not just with statues, centuries of praise, election to being part of the “great [Western, white] literary canon”, and fans, but with “Petrarchism”, a poetic idiom that takes root in misogyny. <span class="Highlight">Themes of the Petrarchan mode are that woman are objects of desire: they rarely speak and they rarely act, except crucially in denying the satisfaction of their stalkers.</span></p>
 
@@ -41,49 +43,70 @@
         Those eyes, which now with constant sorrows flow:
         But poor the triumph of his boasted art,
         Who thus could pierce a naked youth, nor dare
-        To you in armour mail'd even to display his bow!
+        <a class="fourth_accent PoemUnderlineAccent">To you in armour mail'd even to display his bow!</a>
       </div>
       <div class="SonnetNotes">
-        'Twas on the morn, when heaven its blessed ray
-        In pity to its suffering master veil'd,
-        <a class="first_accent_trigger">self-victimization,
-        the poet is out of control, beauty is controlling him;
-        women are "unguarded prety"</a>
-        Of your victorious eyes th' unguarded prey.
-        Ah! little reck'd I that, on such a day,
-        <a class="second_accent_trigger">love is violent</a>
-        And trod, securely trod, the fatal field:
-        Whence, with the world's, began my heart's dismay.
-        On every side Love found <a class="third_accent_trigger">love is male</a>
-        And through mine eyes transfix'd my throbbing heart;
-        Those eyes, which now with constant sorrows flow:
-        But poor the triumph of his boasted art,
-        Who thus could pierce a naked youth, nor dare
-        To you in armour mail'd even to display his bow!
+      'Twas on the morn, when heaven its blessed ray
+      In pity to its suffering master veil'd,
+      <a class="first_accent_trigger">self-victimization,
+      the poet is out of control, beauty is controlling him;
+      women are "unguarded prey"</a>
+      Of your victorious eyes th' unguarded prey.
+      Ah! little reck'd I that, on such a day,
+      <a class="second_accent_trigger">love is violent</a>
+      And trod, securely trod, the fatal field:
+      Whence, with the world's, began my heart's dismay.
+      On every side Love found <a class="third_accent_trigger">love is male</a>
+
+      <a class="fourth_accent_trigger">Love strikes Petrarch but not his woman subject;
+      Petrarch laments how he is in love (which is "naked" a.k.a
+      vulnerable) and that it's one-sided:
+      the woman ("you") is in armor, cruel;
+      the woman is not granted speech by Petrarch, just shown like an unwavering statue</a>
     </div>
 
     </div>
 
     <p class="MakingAPoint">MY POINT</p>
 
-    <p>First, I think as long as misogyny exists, we must point it out and talk about it. Today, a lot of poetry generator engines simply focus on the computational linguist fascination with rhyme-scheme and syllables, forgetting who or what they intend to mimic, and the possible consequences of that. This made me ask the question: “how does data science fit into our conversations about literary history? what is our ‘job’?” I think it’s to prove our own conjectures and beliefs about the world. To me, that’s to expose the ‘great [Western white] literary canon’ for what it is. In the case of Petrarch’s Canzoniere, that ambition becomes centered around misogyny.</p>
+    <p>First, I think as long as misogyny exists, we must point it out and talk about it. Today, a lot of poetry generator engines simply focus on the computational linguist fascination with rhyme-scheme and syllables, forgetting who or what they intend to mimic, and the possible consequences of that. This made me ask the question: “how does data science fit into our conversations about literary history? what is our ‘job’?” I think data science can help us expose the ‘great [Western white] literary canon’ for what it is: in the case of Petrarch’s Canzoniere, that's misogyny.</p>
 
     <p>Secondly, having figured that out, I asked myself: ‘how can I use data science to prove or help support my point that Petrarch was a misogynist?’ My goal here is to use a Word2Vec model on Petrarch’s poems, and see what words are associated with what. From there, we can make some inferences about how the language works.</p>
 
-    <p class="MakingAPoint">BUILDING THE WORD2VEC MODEL Follow along: [collab icon]</p>
+    <p class="MakingAPoint">BUILDING THE WORD2VEC MODEL</p>
+    <a href="https://colab.research.google.com/github/yi-ye-zhi-qiu/metis-project4/blob/main/poemgenerator.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt=\"Open In Colab\"/></a>
 
-    <p class="Step">Getting/cleaning the data See on github: [github py file link]</p>
+    <p class="Step">Getting/cleaning the data See on github: <a href="https://github.com/yi-ye-zhi-qiu/metis-project4/blob/main/step1-poemretriever.py"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 
     <p>Data was acquired from project gutenberg, and the book is called ‘The Sonnets, Triumphs, and Other Poems by Francesco Petrarca’. Only non-empty, non-uppercase (to exclude ‘SONNET III’, for instance), and  less than 50 length lines were preserved and made all lowercase.</p>
 
-    <p class="Step">Fitting and visualizing a Word2Vec model See on github: [github py file link]</p>
+    <p class="Step">Fitting and visualizing a Word2Vec model See on github: <a href="https://github.com/yi-ye-zhi-qiu/metis-project4/blob/main/step2-pcaandmetadata.py"><i class="fa fa-github" aria-hidden="true"></i></a></p>
 
-    <p>Our corpus is a list of 10,983 lines of poetry. The corpus was tokenized and stop-words were removed. A word2vec model was fitted and PCA was performed on a dataframe containing the model’s vocab (this is our checkpoint.ckpt). Since our checkpoint data (our vocab dataframe) is just a numpy array, the index of words are just numbers — when we visualize our data, we will get “103” or something instead of “Love”. To avoid this, we map our PCA vectors to labeled data. This labeled data was obtained via first making a list of every word in our corpus, then making a frequency distribution of those. We input both of these files into a Tensorflow projector, which is publicly hosted at __.</p>
+    <p>Our corpus is a list of 10,983 lines of poetry. The corpus was tokenized and stop-words were removed. A word2vec model was fitted and PCA was performed on a dataframe containing the model’s vocab (this is our checkpoint.ckpt). Since our checkpoint data (our vocab dataframe) is just a numpy array, the index of words are just numbers — when we visualize our data, we will get “103” or something instead of “Love”. To avoid this, we map our PCA vectors to labeled data. This labeled data was obtained via first making a list of every word in our corpus, then making a frequency distribution of those. We input both of these files into a Tensorflow projector using cosine distances, which is publicly hosted at __.</p>
+
+
 
     <a href="{{ url_for('show_petrach_tensor') }}">show tensor</a>
 
-    <p class="MakingAPoint">ANALYZING THE MODEL</p>
+    <p class="MakingAPoint">ANALYZING THE MODEL -- HOW CAN THE CO-OCCURRENCE OF WORDS SUGGEST SYMBOLISM IN POETRY?</p>
+    <p>The embedding projector is used to display our word-vector space in 3-d. We use cosine distances to, based off a given point's proximity to another (its 'neighbors'), visualize words that often occur together in the same line of a poem. These points are highlighted in purple below, with the queried point shown in orangish-red.</p>
 
+
+    <p> For instance, if we look at the word 'love',</p>
+
+    <img class="TensorflowEmbeddingImage1" src="{{ url_for('static',filename='images/love_petrarch.png') }}" alt="">
+
+    <p>love co-occurs often with words like "freeze". This suggests that ice may be a symbol for love, like some cold touch that denies Petrarch warmth.</p>
+
+    <p> More interesting is what Petrarch thought of Laura, his love interest -- or more accurately, the victim of his sonnets, </p>
+
+    <img class="TensorflowEmbeddingImage2" src="{{ url_for('static',filename='images/laura_petrarch.png') }}" alt="">
+
+    <p>The word 'laura' is often associated with words like 'blame', 'denies', 'instruction's'. This makes sense, as Laura denies Petrarch's advances and Petrarch blames her for it, as he perceives her as leading him on.</p>
+
+    <p class="MakingAPoint">CONCLUSIONS</p>
+
+    <p>The use case for this approach is in literary history: evaluating symbolism through word2vec analysis.</p>
 
   </article>
 
