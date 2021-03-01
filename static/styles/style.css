@@ -390,31 +390,47 @@ article p{
   color: white;
 }
 .PetrarchSonnet{
+  display: flex;
+  flex-direction: row;
+}
+.Sonnet, .SonnetNotes{
   white-space: pre;
 }
-.PoemUnderlineAccent:after{
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: 0;
-  width: 0;
-  bottom: -5px;
-  background: #000;
-  height: 4px;
-  transition-property: width;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-out;
-}
+.SonnetNotes{
+  display: block;
+  color: white;
 }
 .PoemUnderlineAccent{
-  display: inline;
   position: relative;
-  overflow: hidden;
+}
+.PoemUnderlineAccent:after{
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: -0.1em;
+  right: -0.1em;
+  bottom: -0.1em;
+  transition: top 200ms cubic-bezier(0, 0.8, 0.13, 1);
+  background-color: #E7ECEF;
 }
 .PoemUnderlineAccent:hover:after,
-.PoemUnderlineAccent:focus:after,
-.PoemUnderlineAccent:active:after {
-  left: 0;
-  right: auto;
-  width: 100%;
+.hovered{
+  background-color: rgba(255,217,211, 0.8);
+  top: 0%;
+}
+.first_accent_trigger{
+  opacity: 0.5;
+  background-color: #E7ECEF;
+  color: #121314;
+}
+.second_accent_trigger{
+  opacity: 0.5;
+  background-color: #E7ECEF;
+  color: #121314;
+}
+.third_accent_trigger{
+  opacity: 0.5;
+  background-color: #E7ECEF;
+  color: #121314;
 }
