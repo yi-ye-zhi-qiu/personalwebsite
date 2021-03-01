@@ -30,6 +30,11 @@ def show_index():
 def show_petrarch():
     return render_template('petrarch.html')
 
+#Petrarch tensor page
+@app.route('/petrarchtensor')
+def show_petrach_tensor():
+    return render_template('template_projector_config.json')
+
 #Lieum.gg SEARCH page
 @app.route('/league')
 def show_league():
@@ -97,7 +102,7 @@ def riot_api_call():
                                                   name=name)
 
 #Liamometer page
-@app.route('/liamometer')	#Home/landing page
+@app.route('/liamometer')
 def show_liamometer():
     """
     Performs linear regression on scraped databases (IMDB, BoxOfficeMojo).
