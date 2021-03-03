@@ -460,7 +460,7 @@ p{
     font-weight: bold;
 }
 .gameitem>.content>.gamesettinginfo {
-    width: 100px;
+    width: 102px;
     font-size: 0;
 }
 .gameitem>.content>.gamesettinginfo>.championimage {
@@ -498,11 +498,29 @@ p{
     width: 100%;
     height: 100%;
 }
+.gameitem>.content>.gamesettinginfo>.runes {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+.gameitem>.content>.gamesettinginfo>.runes>.rune {
+  width: 22px;
+  height: 22px;
+  margin-top: 4px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.gameitem>.content>.gamesettinginfo>.runes>.rune>.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .gameitem>.content>.gamesettinginfo>.championname {
     margin-top: 8px;
     font-size: 11px;
     color: #555;
-    text-align: center;
+    margin-left: 15px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -744,6 +762,7 @@ p{
   margin-top: -25px;
 }
 .game_deets{
+  opacity: 0;
   background: #e89d99;
 }
 .is-hidden {
@@ -845,6 +864,14 @@ tr:hover{
   width: 16px;
   height: 16px;
   border-radius: 2px;
+}
+
+.ni-rune-image{
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: #121314;
 }
 
 .ni-summoner-name{

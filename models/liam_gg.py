@@ -6,6 +6,14 @@ import numpy as np
 import pprint
 from datetime import datetime
 
+#Import libraries
+from riotwatcher import LolWatcher, ApiError #this is the python wrapper we use,
+#                                             documentation at https://riot-watcher.readthedocs.io/en/latest/riotwatcher/LeagueOfLegends/index.html
+import pandas as pd
+import numpy as np
+import pprint
+from datetime import datetime
+
 
 class game_info_by_match_id():
     """
@@ -14,12 +22,11 @@ class game_info_by_match_id():
     We get a datframe that has a lot of information about the match -- every champion, every item, every ward, etc.
     """
     #Constructor function
-    def __init__(self, api_key, name, region, gamemode, gameid):
+    def __init__(self, api_key, name, region, gameid):
         #upon calling the class we pass in a bunch of things to initialize^
         self.api_key = api_key
         self.name = name
         self.region = region
-        self.gamemode = gamemode
         self.gameid = gameid
         watcher = LolWatcher(self.api_key)
         self.user = watcher.summoner.by_name(region, name)
@@ -49,9 +56,14 @@ class game_info_by_match_id():
         #n is for each "participant" or player in the match
         def gd(): #gd = get data
             n = [] #dump raw stats into here from participants
+            #print(m['participants'])
             for row in m['participants']:
                 m_row = {} #store in dict
                 m_row['champion'] = row['championId']
+
+                m_row['rune1'] = row['stats']['perk0']
+                m_row['rune2'] = row['stats']['perk1']
+
                 m_row['spell1'] = row['spell1Id']
                 m_row['spell2'] = row['spell2Id']
                 m_row['teamId'] = row['teamId']
@@ -166,6 +178,7 @@ class game_info_by_match_id():
                 #This is the image for each summoner spell
                 summonerspell_dict[row['key']] = spell_url + str(row['image']['full'])
 
+
             #champs
             champ_url = "https://ddragon.leagueoflegends.com/cdn/11.2.1/img/champion/"
 
@@ -190,6 +203,9 @@ class game_info_by_match_id():
                 #print(str(row['item1']) + ' ' + item_dict[str(row['item1'])])
                 row['championName'] = champ_name_dict[str(row['champion'])]
                 row['championImage'] = champ_image_dict[str(row['champion'])]
+                row['rune1Image'] = "static/images/runes/"+str(row['rune1'])+".png"
+                row['rune2Image'] = "static/images/runes/"+str(row['rune2'])+".png"
+
                 for i in range(0,7):
                     try:
                         #get names and images

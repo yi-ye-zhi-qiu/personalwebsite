@@ -75,41 +75,48 @@ function scrollFunc() {
 }
 
 
-function fade_out(element) {
-    var op = 1;  // initial opacity
-    var timer = setInterval(function () {
-        if (op >= 0.05){
-            clearInterval(timer);
-            element.style.display = 'none';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
-    }, 50);
-    element.dataset.state ='faded_out'
-}
-
-function fade_in(element) {
-    var op = 1;  // initial opacity
-    var timer = setInterval(function () {
-        if (op >= 0.1){
-            clearInterval(timer);
-            element.style.display = 'block';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
-    }, 50);
-    element.dataset.state ='faded_in'
-}
-
 var show_deets = document.querySelectorAll('.game_deets')
 var btn = document.querySelectorAll('.content')
+
+
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", function() {
-      if(show_deets[i].dataset.state==='faded_out'){ fade_in(show_deets[i])}
-      else{fade_out(show_deets[i])}
+      if(show_deets[i].dataset.state !== 'faded_in'){
+            show_deets[i].style.opacity="0.1";
+            unfade(show_deets[i]);
+      }
+      else {
+            show_deets[i].style.opacity="0.1";
+            fade(show_deets[i]);
+      }
     });
+}
+
+function unfade(element) {
+    var op = 0.1;  // initial opacity
+    element.style.display = 'block';
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 30);
+    element.dataset.state = 'faded_in';
+}
+function fade(element){
+  var op = element.style.opacity;
+  var timer = setInterval(function () {
+    if (op >= 0){
+      clearInterval(timer);
+    }
+    op -= op * 0.1;
+    element.style.opacity = op;
+    element.style.filer = 'alpha(opacity=' + op * 100 + ")";
+  }, 30);
+  element.dataset.state = 'faded_out';
+  element.style.display = 'none';
 }
 
 

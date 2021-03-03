@@ -135,6 +135,15 @@
                           <img class="image" src="{{ D_df.loc[D_df['summonerName'] == name]['spell2Image'].values[0] }}" alt="">
                         </div>
                       </div>
+                      <div class="runes">
+                        <div class="rune">
+                          <!--url_for('static',filename='images/love_petrarch.png'-->
+                          <img class="image" src="{{ D_df.loc[D_df['summonerName'] == name]['rune1Image'].values[0] }}" alt="">
+                        </div>
+                        <div class="rune">
+                          <img class="image" src="{{ D_df.loc[D_df['summonerName'] == name]['rune2Image'].values[0] }}" alt="">
+                        </div>
+                      </div>
                       <div class="championname">
                         {{ D_df.loc[D_df['summonerName'] == name]['championName'].values[0] }}
                       </div>
@@ -225,7 +234,7 @@
                   </div>
 
                   <!-- collapsable game details -->
-                  <div class="game_deets is-hidden">
+                  <div class="game_deets">
                     <div class="game_deets_content">
                       <table class="game_deets_table">
                         <!-- set up the width of our columns -->
@@ -296,6 +305,8 @@
                               </div>
                             </td>
                             <td class="ni-cell ni-runes">
+                              <img class="ni-rune-image" src="{{ D_df.loc[i]['rune1Image'] }}" alt="">
+                              <img class="ni-rune-image" src="{{ D_df.loc[i]['rune2Image'] }}" alt="">
                             </td>
                             <td class="ni-cell ni-summoner-name">
                               {{ D_df.loc[i]['summonerName'] }}
@@ -513,6 +524,8 @@
                                 </div>
                               </td>
                               <td class="ni-cell ni-runes">
+                                <img class="ni-rune-image" src="{{ D_df.loc[i]['rune1Image'] }}" alt="">
+                                <img class="ni-rune-image" src="{{ D_df.loc[i]['rune2Image'] }}" alt="">
                               </td>
                               <td class="ni-cell ni-summoner-name">
                                 {{ D_df.loc[i]['summonerName'] }}
