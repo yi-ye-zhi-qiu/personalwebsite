@@ -3,28 +3,20 @@
 
 var NeedTranslate = [
     {
-        中文: "我",
-        ENG: "me",
+        中文: "叶秋2019年从Wesleyan University毕业了，专业：化学",
+        ENG: "I graduated in 2019 from Wesleyan University with a degree in Chemistry",
     },
     {
-        中文: "自己的",
-        ENG: "portfolio",
+        中文: "我一周5次做宫保鸡丁",
+        ENG: "I make Kung Pao chicken 5 times a week",
     },
     {
-        中文: "联系（liam xi）",
-        ENG: "contact",
+        中文: "我一周3次在golden gate park跑步地好慢",
+        ENG: "I run slowly in Golden Gate Park 3 times a week",
     },
     {
-        中文: "请你看一下我写的",
-        ENG: "check out some of my stuff!",
-    },
-    {
-        中文: "IMDB 评价：介绍 叶秋-的-排序 你快看吧！",
-        ENG: "Predicted IMDB ratings: The Liam-o-meter",
-    },
-    {
-      中文: "叶秋，1月22号 2021年",
-      ENG: "liam, jan 22 2021",
+        中文: "我学了不到4年的中文了 （2018年开始的，去过北京3个月）",
+        ENG: "I've been studying Mandarin for about 4 years, and went to Beijing for 3 months in 2018",
     }
 ];
 var usable_codes = [
@@ -115,7 +107,7 @@ function translate_one_word(each_word, NeedTranslate) {
 translate({
     dropID: "lang-chooser",
     stringAttribute: "data-mlr-text", //any span tag w/ data-mlr-text will be translated as is specified in NeedTranslate table
-    chosenLang: "ENG",
+    chosenLang: "中文",
     NeedTranslate: NeedTranslate,
     countryCodes: true,
     countryCodeData: usable_codes,

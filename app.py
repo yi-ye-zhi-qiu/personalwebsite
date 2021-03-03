@@ -25,6 +25,11 @@ def show_index():
     #just serve up index.html
     return render_template('index.html')
 
+#Poems
+@app.route('/poems')
+def show_poems():
+    return render_template('poems.html')
+
 #Petrarch NLP project page
 @app.route('/petrarch')
 def show_petrarch():
@@ -62,12 +67,11 @@ def riot_api_call():
     #change to 20, 30 if you want to display more data on the page
     #You may run into an API limit error doing that, though
     game_ids = []
-    for i in range(0,10):
+    for i in range(0,2):
         game_ids.append(matches['matches'][i]['gameId'])
 
     #Get the user's ranked stats
-    ranked_info = game_info_by_match_id(api_key, name, region,
-                                        game_ids[0]).rank_stats()
+    ranked_info = game_info_by_match_id(api_key, name, region, game_ids[0]).rank_stats()
     ranked_info = pd.DataFrame(ranked_info)
     #If unranked just put "unranked"
     if ranked_info.empty:
@@ -85,7 +89,7 @@ def riot_api_call():
     for gameid in game_ids:
         dfs[gameid] = game_info_by_match_id(api_key,
                                           name, region,
-                                          gamemode, gameid).match_data()
+                                          gameid).match_data()
 
     #Assemble SHAP plots for each GameID (this is revealed by the show stats button)
     shap_plots = {}

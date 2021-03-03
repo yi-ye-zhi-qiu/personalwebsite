@@ -762,6 +762,7 @@ p{
   margin-top: -25px;
 }
 .game_deets{
+  display: none;
   opacity: 0;
   background: #e89d99;
 }

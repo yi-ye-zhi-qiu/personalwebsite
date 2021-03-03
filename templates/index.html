@@ -125,15 +125,20 @@
     <div class="line_Horizontal"></div>
 
     <div class="SectionTitle">
-        <div class="SectionHeader">
+        <div class="SectionHeader SectionAbout">
           <span>about me</span>
       </div>
     </div>
 
       <div class="About">
         <div class="IntroduceMe">
+          <a href="{{ url_for('show_poems') }}">very sneakily placed poems</a>
 
-
+          <select  class="select" id="lang-chooser"><span class="focus"></span></select>
+          <p data-mlr-text>叶秋2019年从Wesleyan University毕业了，专业：化学</p>
+          <p data-mlr-text>我一周5次做宫保鸡丁</p>
+          <p data-mlr-text>我一周3次在golden gate park跑步地好慢</p>
+          <p data-mlr-text>我学了不到4年的中文了 （2018年开始的，去过北京3个月）</p>
         </div>
       </div>
     </div>
@@ -142,5 +147,5 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-  <script src="js.js"></script>
+  <script src="{{ url_for('static',filename='js/js.js') }}"></script>
 </html>
