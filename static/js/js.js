@@ -3,20 +3,24 @@
 
 var NeedTranslate = [
     {
-        中文: "叶秋2019年从Wesleyan University毕业了，专业：化学",
-        ENG: "I graduated in 2019 from Wesleyan University with a degree in Chemistry",
+        中文: "我2019年毕业了，专业化学",
+        ENG: "I graduated in 2019, with a degree in Chemistry",
     },
     {
-        中文: "我一周5次做宫保鸡丁",
-        ENG: "I make Kung Pao chicken 5 times a week",
+        中文: "我一周3次在Golden Gate Park公园跑步",
+        ENG: "I run 3 times a week in Golden Gate Park",
     },
     {
-        中文: "我一周3次在golden gate park跑步地好慢",
-        ENG: "I run slowly in Golden Gate Park 3 times a week",
+        中文: "我弹钢琴，姿势不错，要不在弹我姿势就像一个香蕉了",
+        ENG: "I play piano, posture is OK, otherwise my posture is like a banana",
     },
     {
-        中文: "我学了不到4年的中文了 （2018年开始的，去过北京3个月）",
-        ENG: "I've been studying Mandarin for about 4 years, and went to Beijing for 3 months in 2018",
+        中文: "我学了3年的中文了 （2018年开始的，去过北京3个月）",
+        ENG: "I've been studying Mandarin for 3 years, and went to Beijing for 3 months in 2018",
+    },
+    {
+        中文: "Science 是 Art的一种",
+        ENG: "Science is a kind of art",
     }
 ];
 var usable_codes = [

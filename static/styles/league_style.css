@@ -774,7 +774,7 @@ p{
   border-top: none;
 }
 .game_deets_table{
-  width: 100%;
+  width: 850px;
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -820,11 +820,17 @@ tr:hover{
   text-align: left;
   color: blue;
 }
+.wo-tr-thead:first-child{
+  text-align: left;
+  padding-left: 15px;
+  font-weight: 500;
+}
 .wo-tr-thead{
   height: 32px;
   color: #121314;
   font-size: 12px;
   font-weight: normal;
+  text-align: center;
 }
 .ni{
   background-color: #fff;
@@ -985,11 +991,9 @@ tr:hover{
 
 .yi-qi-fen-kai{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-left: 1px solid #121314;
-  border-right: 1px solid #121314;
-  background-color: #f3f3f3;
+  justify-content: center;
+  background-color: white;
+  padding-bottom: 8px;
 }
 .yi-qi-fen-kai-team:first-child{
   padding-right: 0;

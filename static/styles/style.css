@@ -111,8 +111,7 @@ h1:nth-child(2){
 
 @media screen and (max-width: 1354px) {
   .SectionHeader{
-    margin-top: 0px;
-    margin-left: -180px;
+
   }
 }
 
@@ -121,20 +120,41 @@ h1:nth-child(2){
   flex-direction: row;
   justify-content: center;
 }
-.PortfolioText, .About{
-  position: relative;
-  display: block;
+.PortfolioText, .AboutText{
   background-color: white;
   opacity: 0.9;
   padding-bottom: 2em;
   margin-top: 65px;
 }
-
-.PortfolioText{
+.About{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.PortfolioText, .AboutText{
+  position: relative;
+  display: block;
   padding-left: 2em;
   width: 600px;
 }
-.PortfolioHover{
+.AboutText{
+  background-color: #121314;
+  color: white;
+  padding-right: 2em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-size: 16px;
+}
+.AboutText a{
+  background-color: #373a3d;
+  color: white;
+  text-decoration: none;
+}
+.AboutText a:hover{
+  color: #f3f3f3;
+  text-decoration: underline;
+}
+.PortfolioHover, .AboutHover{
   display: flex;
   justify-content: center;
 }
@@ -240,20 +260,6 @@ h1:nth-child(2){
 
 /** ABOUT **/
 
-.IntroduceMe{
-  line-height: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: #121314;
-  font-size: 18px;
-  letter-spacing: .05em;
-  font-weight: 300;
-}
-.IntroduceMe p{
-  text-align: center;
-  margin-bottom: -8px;
-}
 
 select{
   appearance: none;

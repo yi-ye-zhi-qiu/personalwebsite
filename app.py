@@ -67,7 +67,7 @@ def riot_api_call():
     #change to 20, 30 if you want to display more data on the page
     #You may run into an API limit error doing that, though
     game_ids = []
-    for i in range(0,2):
+    for i in range(0,5):
         game_ids.append(matches['matches'][i]['gameId'])
 
     #Get the user's ranked stats
