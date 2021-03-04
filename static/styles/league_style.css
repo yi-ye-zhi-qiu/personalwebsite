@@ -571,8 +571,8 @@ p{
 }
 .gameitem>.content>.KDA>.badge>.MVP {
     border-radius: 9px;
-    background-color: #e19205;
-    border: solid 1px #b88a2a;
+    background-color: #121314;
+    color: white;
 }
 .gameitem>.content>.KDA>.KDAratio>.KDAratio{
   padding:.25em .5em .3125em;

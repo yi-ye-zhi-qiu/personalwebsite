@@ -62,7 +62,7 @@ class game_info_by_match_id():
                 m_row['champion'] = row['championId']
 
                 m_row['rune1'] = row['stats']['perk0']
-                m_row['rune2'] = row['stats']['perk1']
+                m_row['rune2'] = row['stats']['perkSubStyle']
 
                 m_row['spell1'] = row['spell1Id']
                 m_row['spell2'] = row['spell2Id']
