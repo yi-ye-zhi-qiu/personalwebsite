@@ -106,7 +106,7 @@ h1:nth-child(2){
 }
 .SectionHeader{
   margin-top: 75px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 8px;
   text-align: center;
@@ -142,12 +142,35 @@ h1:nth-child(2){
   width: 600px;
 }
 .AboutText{
+  margin-top: 18px;
+  opacity: 1;
   background-color: #121314;
   color: white;
   padding-right: 2em;
   padding-top: 2em;
   padding-bottom: 2em;
   font-size: 16px;
+}
+.AboutText a{
+  color: #2e3033;
+  text-decoration: underline;
+  background-color: #d5d7d9;
+}
+.PoemsEssays{
+  text-align: center;
+}
+.PoemsEssays a{
+  font-size: 12px;
+  display: inline-block;
+  color: rgba(161,106,232, 1);
+  background: rgba(161,106,232, 0.4);
+  border-radius: 4px;
+  padding: 3px;
+}
+.PoemsEssays a:hover{
+  background: rgba(161,106,232, 1);
+  color: white;
+  cursor: pointer;
 }
 .ContactText{
   font-size: 15px;
@@ -160,15 +183,6 @@ h1:nth-child(2){
 table{
   border-collapse: collapse;
 
-}
-.AboutText a{
-  background-color: #373a3d;
-  color: white;
-  text-decoration: none;
-}
-.AboutText a:hover{
-  color: #f3f3f3;
-  text-decoration: underline;
 }
 .PortfolioHover, .AboutHover{
   display: flex;
@@ -285,6 +299,10 @@ table{
 
 /* reset lang-chooser to default css */
 .select{
+  text-align: center;
+  left: 50%;
+  margin-left: -25px;
+  position: relative;
   border: 1px solid var(--select-border);
   border-radius: 0.25em;
   padding: 0.25em 0.5em;
@@ -311,20 +329,6 @@ select:focus + .focus {
   bottom: -1px;
   border-radius: inherit;
 }
-/* .select{
-  appearance: none;
-  border: none;
-  width: 100px;
-  vertical-align: center;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: inherit;
-  line-height: inherit;
-  text-align-last: center;
-  margin-top: -20px;
-  background-color: #53585C;
-  color: white;
-} */
 .select:hover{
   background: linear-gradient(30deg, #07f79b, white);
   animation: animate 10s linear infinite;
