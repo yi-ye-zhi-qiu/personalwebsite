@@ -13,8 +13,8 @@ var NeedTranslate = [
         ENG: "In 2020, I started my YouTube channel, but shortly after (a month or two), I went to work at Genentech.",
     },
     {
-        中文: "2021年：上 Metis 的数据分析，3月内就造成了所有的 Portoflio。",
-        ENG: "In 2021, I attended the Metis Data Science program, and made this website portfolio in 3 months.",
+        中文: "2021年：上 Metis 的数据分析，3月内就造成了这个网站，包括我的 Portoflio。",
+        ENG: "In 2021, I attended the Metis Data Science program, and made this website and the portfolio in 3 months.",
     },
     {
         中文: "我学了3年的中文了 （2018年开始的，去过北京3个月）",
@@ -27,6 +27,10 @@ var NeedTranslate = [
     {
         中文: "中文（3.5年），钢琴（8年），诗（？？年），🏃（？？）",
         ENG: "Mandarin (3.5 yrs); piano (8 yrs); poem (?? yrs); 🏃(??)",
+    },
+    {
+        中文: "yeqiu194@gmail.com, 我住在旧金山，给我打个招呼，也可以一起喝一杯咖啡☕️",
+        ENG: "yeqiu194@gmail.com  I'm in San Francisco, come say hi -- we can get a coffee",
     },
     {
         中文: "登录",
