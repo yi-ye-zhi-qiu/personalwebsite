@@ -14,6 +14,7 @@ body {
   --movie-bg-color: #ffffff;
 }
 h1, h2 {
+  margin: none;
   font-weight: normal;
   text-align: center;
   word-spacing: 30px;
@@ -24,7 +25,14 @@ h1:nth-child(2){
   font-size: 14px;
   font-weight: 200;
 }
-
+h1 a{
+  color: #121314;
+  font-size: 30px;
+}
+h1 i:hover{
+  transform: translate(5%, -2%);
+  box-shadow:-10px 10px  #eaebec;
+}
 .TopSection{
   background: var(--placeholder-color);
   height: 500px;
@@ -46,45 +54,6 @@ h1:nth-child(2){
   position: absolute;
   left: 50%;
   margin-left: -150px;
-}
-
-/** BUTTON **/
-.ButtonContainer{
-  display: flex;
-  justify-content: center;
-}
-.ButtonContainer:last-child{
-  margin-top: 250px;
-}
-
-.Button {
-  border-radius: 4px;
-  -webkit-font-smoothing: antialiased;
-  border: none;
-  display: inline-block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  font-weight: 100;
-  text-decoration: none;
-  user-select: none;
-  letter-spacing: 1px;
-  padding: 20px 40px;
-  transition: all 0.1s ease-out;
-  color: #121314;
-}
-.Button:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-color: white;
-  color: white;
-  background-color: #f3f3f3;
-  color: #121314;
-}
-.Button:active {
-  transform: scale(0.95);
-}
-.Button:active{
-  transform: scale(0.95);
 }
 
 /** END OF BUTTON **/
@@ -144,17 +113,22 @@ h1:nth-child(2){
 .AboutText{
   margin-top: 18px;
   opacity: 1;
-  background-color: #121314;
-  color: white;
+  background-color: white;
+  color: #121314;
   padding-right: 2em;
   padding-top: 2em;
   padding-bottom: 2em;
   font-size: 16px;
+  border: 2px solid #dfe1e2;
+  border-radius: 4px;
 }
 .AboutText a{
   color: #2e3033;
   text-decoration: underline;
   background-color: #d5d7d9;
+}
+.AboutText a:hover{
+  background-color: white;
 }
 .PoemsEssays{
   text-align: center;
@@ -174,11 +148,13 @@ h1:nth-child(2){
 }
 .ContactText{
   font-size: 15px;
-  background-color: #dfe1e3;
+  background-color: white;
   padding-left: 2em;
   padding-right: 2em;
   padding-top: 2em;
   padding-bottom: 2em;
+  color: #121314;
+  border: none;
 }
 table{
   border-collapse: collapse;

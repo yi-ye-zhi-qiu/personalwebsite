@@ -1,26 +1,44 @@
 //lang-chooser has NeedTranslate which is a table that can support any number of languages,
 //this is inserted into the html element w/ id "lang-chooser" (see lang_chooser.js:36)
 
+
+
 var NeedTranslate = [
     {
-        中文: "我2019年毕业了，专业化学",
-        ENG: "I graduated in 2019, with a degree in Chemistry",
+        中文: "我2019年从 Wesleyan University 毕业了（化学专业）。毕业了之后不大满意吧，琢磨过了自己的方向好几次。我从小带来了自卑感真的像一只追我的仓鼠，促进我一路成长吧，就是这个不停地要挣脱出。",
+        ENG: "I graduated in 2019 from Wesleyan Univeristy (Chemistry major). I was left a little disoriented. Since I was little, I've struggled with feeling less, as if envy a small hamster following me around; this made me grow up fast but with a constant sense that I owe it to myself to at least try to do what I want, for me. Trying to pierce the veil of 'do what is seen as good' to get to 'do what makes you happy' is hard, but worth it everytime.",
     },
     {
-        中文: "我一周3次在Golden Gate Park公园跑步",
-        ENG: "I run 3 times a week in Golden Gate Park",
+        中文: "2020年：成立了自己的YouTube，用不了太久又不满意 （父母的压力，肩膀受不了），去Genentech公司工作了。",
+        ENG: "In 2020, I started my YouTube channel, but shortly after (a month or two), I went to work at Genentech.",
     },
     {
-        中文: "我弹钢琴，姿势不错，要不在弹我姿势就像一个香蕉了",
-        ENG: "I play piano, posture is OK, otherwise my posture is like a banana",
+        中文: "2021年：上 Metis 的数据分析，3月内就造成了所有的 Portoflio。",
+        ENG: "In 2021, I attended the Metis Data Science program, and made this website portfolio in 3 months.",
     },
     {
         中文: "我学了3年的中文了 （2018年开始的，去过北京3个月）",
         ENG: "I've been studying Mandarin for 3 years, and went to Beijing for 3 months in 2018",
     },
     {
-        中文: "Science 是 Art的一种",
-        ENG: "Science is a kind of art",
+        中文: "身份：",
+        ENG: "Identity: ",
+    },
+    {
+        中文: "中文（3.5年），钢琴（8年），诗（？？年），🏃（？？）",
+        ENG: "Mandarin (3.5 yrs); piano (8 yrs); poem (?? yrs); 🏃(??)",
+    },
+    {
+        中文: "登录",
+        ENG: "Login",
+    },
+    {
+        中文: "用户名",
+        ENG: "Username",
+    },
+    {
+        中文: "密码",
+        ENG: "Password"
     }
 ];
 var usable_codes = [
